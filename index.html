@@ -13,7 +13,7 @@
         /* --- متغيرات التصميم --- */
         :root {
             /* لون المساحة الفارغة في المتصفح عند الفتح من الكمبيوتر */
-            --browser-bg: #e3b97e; 
+            --browser-bg: #f5efd9; 
             
             --phone-width: 430px;
             --gold-main: #d4af37;
@@ -448,15 +448,15 @@ style="cursor:pointer;">
 
 
 <div style="text-align:center; padding: 40px 0 60px; position:relative; z-index:5;">
-    <h2 class="font-royal" style="font-size:28px; color:#ffffff;">
+    <h2 class="font-royal" style="font-size:38px; color:#ffffff;">
         بكم تكتمل فرحتنا
     </h2>
 </div>
 
 <div style="text-align:center; padding: 0 0 20px; position:relative; z-index:5;">
     <a href="https://www.dawaqr.com" target="_blank"
-       style="font-size:14px; color:#f9f2db; text-decoration:none; letter-spacing:1px; opacity:0.9;">
-        www.dawaqr.com
+       style="font-size:14px; color:#000000; text-decoration:none; letter-spacing:1px; opacity:0.9;">
+        www.DawaQR.com
     </a>
 </div>
 
@@ -522,18 +522,30 @@ video.addEventListener("ended", () => {
 });
 
         /* --- تعديل حركة الخلفية لتتحرك للأعلى بسرعة 1:1 --- */
-        function animateParallax() {
-            const scrollY = window.pageYOffset;
-            const bg = document.getElementById('parallaxBg');
-            if(bg) {
-                // استخدام قيمة سالبة (scrollY * -1) يجعل الخلفية تصعد للأعلى مع النزول لأسفل
-                // وبسرعة 1:1 بالنسبة لسرعة التمرير
-                bg.style.transform = `translate3d(0, ${scrollY * -1}px, 0)`;
-            }
-            requestAnimationFrame(animateParallax);
-        }
-        requestAnimationFrame(animateParallax);
+let ticking = false;
 
+function updateParallax() {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+
+            const scrollY = window.scrollY || window.pageYOffset;
+            const bg = document.getElementById('parallaxBg');
+
+            if (bg) {
+                // 1:1 الحقيقي
+                bg.style.transform = `translate3d(0, ${-scrollY}px, 0)`;
+            }
+
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', updateParallax, { passive: true });
+
+window.addEventListener('scroll', updateParallax, { passive: true });
         // القائمة العائمة
         function toggleFloatingMenu() {
             document.getElementById('mainMenuBtn').classList.toggle('active');
