@@ -59,26 +59,35 @@
         }
 
         /* --- معالجة الفيديو لبداية التجربة --- */
-        .intro {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: var(--phone-width);
-            height: 100%;
-            background: #000;
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.intro {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-width: 430px;
+    margin: auto;
+    background: #000;
+    z-index: 99999;
+    overflow: hidden;
+}
 
-        .intro video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+/* الصورة تظهر أولاً */
+.intro-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    transition: opacity 0.6s ease;
+}
+
+/* الفيديو تحت الصورة */
+#introVideo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
 
         .white-transition {
             position: fixed;
@@ -302,11 +311,17 @@
 
 <body>
     <!-- الفيديو التعريفي - يعمل عند أول لمسة -->
-    <div id="intro" class="intro" onclick="startExperience()">
-        <video id="introVideo" playsinline muted preload="auto">
-            <source src="assets/Digital Wedding Invitations & Event Invites_2.mp4" type="video/mp4">
-        </video>
-    </div>
+<div id="intro" class="intro" onclick="startExperience()">
+
+    <!-- صورة البداية (نفس فريم الفيديو) -->
+    <img id="introImage" src="assets/intro.png" class="intro-img">
+
+    <!-- الفيديو -->
+    <video id="introVideo" playsinline muted preload="auto">
+        <source src="assets/Digitalss.mp4" type="video/mp4">
+    </video>
+
+</div>
 
     <div id="whiteTransition" class="white-transition"></div>
     
@@ -462,34 +477,29 @@ style="cursor:pointer;">
         // بدء التجربة عند التفاعل (لحل مشكلة سفاري)
 function startExperience() {
     const video = document.getElementById("introVideo");
+    const img = document.getElementById("introImage");
 
-    // مهم جدًا إعادة ضبط الفيديو
+    // إخفاء الصورة
+    img.style.opacity = "0";
+
+    setTimeout(() => {
+        img.style.display = "none";
+    }, 600);
+
+    // تشغيل الفيديو
     video.currentTime = 0;
     video.muted = true;
     video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
 
-    // محاولة تشغيل مضمونة
-    const playPromise = video.play();
+    video.play().catch(err => {
+        console.log("Video play blocked:", err);
+    });
 
-    if (playPromise !== undefined) {
-        playPromise
-            .then(() => {
-                console.log("Video started");
-            })
-            .catch((err) => {
-                console.log("Play blocked:", err);
-
-                // 🔥 fallback مهم
-                setTimeout(() => {
-                    video.play().catch(()=>{});
-                }, 300);
-            });
-    }
-
-    // تشغيل الصوت بعد الضغط
-    audioEl.play().catch(()=>{});
+    // تشغيل الصوت
+    audioEl.play().catch(() => {});
 }
+
+
 
         // عند انتهاء الفيديو، الانتقال للمحتوى
 video.addEventListener("ended", () => {
