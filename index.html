@@ -15,7 +15,7 @@
             --browser-bg: #e8e7e3; 
             --phone-width: 430px;
             --gold-main: #bf953f;
-            --gold-bright: #aa771c;
+            --gold-bright: #ffffff;
             --gold-dark: #8b6518;
             
             /* خلفية بيضاء عاجية شفافة بنسبة بسيطة جداً وراقية لتظهر الخلفية من تحتها */
@@ -44,15 +44,37 @@
         }
 
         .phone-frame {
-            position: relative;
-            width: 100%;
-            max-width: var(--phone-width);
-            min-height: 100dvh;
-            background: #e8e7e3; /* متطابق مع لون المخطوطة */
-            box-shadow: 0 0 60px rgba(191, 149, 63, 0.25); 
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
+    position: relative;
+    width: 100%;
+    max-width: var(--phone-width);
+    min-height: 100dvh;
+    /* قمنا بحذف اللون الثابت من هنا ليظهر ما خلفه */
+    box-shadow: 0 0 60px rgba(191, 149, 63, 0.25); 
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.bg-wrapper {
+    position: fixed; /* يجعل الصورة ثابتة تماماً في الشاشة */
+    top: 0;
+    /* نحافظ على تمركز الخلفية داخل إطار الهاتف فقط */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--phone-width);
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    
+    /* إضافة الصورة الثابتة */
+    background-image: url('assets/04.png'); /* 👈 ضع مسار واسم صورتك هنا */
+    background-size: cover; /* لملء الشاشة بالكامل */
+    background-position: center; /* توسيط الصورة */
+    background-repeat: no-repeat; /* منع تكرار الصورة */
+    
+    /* يمكنك إضافة نسبة شفافية إذا كانت الصورة داكنة أو فاتحة جداً (اختياري) */
+    /* opacity: 0.8; */
+}
 
         /* --- شاشة الافتتاحية والفيديو --- */
         .intro {
@@ -113,24 +135,30 @@
         }
 
         .click-text {
-            color: #fff;
-            font-family: 'Amiri', serif;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-top: 320px; /* تنزيل الزر للأسفل */
-            
-            /* --- التعديلات الجديدة للمستطيل الدائري --- */
-            padding: 12px 40px; /* مساحة داخلية تصنع شكل المستطيل */
-            background: rgba(191, 149, 63, 0.85); /* خلفية ذهبية فخمة شبه شفافة */
-            border: 1px solid rgba(255, 255, 255, 0.4); /* إطار أبيض خفيف جداً يبرز الحواف */
-            border-radius: 50px; /* حواف دائرية بالكامل */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* ظل أنيق لإبراز الزر */
-            backdrop-filter: blur(5px); /* تأثير زجاجي يدمج الزر مع الفيديو بنعومة */
-            -webkit-backdrop-filter: blur(5px);
-            
-            animation: float-text 2s infinite ease-in-out;
-        }
+    /* لون النص (يمكنك تغييره لأي لون تريده، استخدمت هنا اللون الذهبي الأساسي) */
+    color: var(--gold-main); 
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 320px; 
+    
+    padding: 12px 40px; 
+    
+    /* جعل الخلفية شفافة بالكامل */
+    background: transparent; 
+    
+    /* إطار خارجي بنفس لون النص (سُمكه 2 بيكسل ليكون واضحاً) */
+    border: 2px solid var(--gold-main); 
+    border-radius: 50px; 
+    
+    /* ظل خفيف جداً وتأثير زجاجي بسيط لضمان وضوح الزر فوق الفيديو */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(3px); 
+    -webkit-backdrop-filter: blur(3px);
+    
+    animation: float-text 2s infinite ease-in-out;
+}
 
         @keyframes pulse-ring {
             0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.7); }
@@ -156,15 +184,6 @@
 
         .white-transition.active { opacity: 1; }
 
-        .bg-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
 
         /* --- تساقط الأوراق الذهبية (مُحسّن لتسريع الأداء) --- */
         .leaf-container {
@@ -293,12 +312,10 @@
 
         /* --- النصوص --- */
         .gold-text {
-            background: linear-gradient(to right, #8a6521, #bf953f, #aa771c, #6b4c10);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            display: inline-block;
-        }
+    color: #2c2100; /* لون أبيض سكري ناعم */
+    font-weight: 700;
+    display: inline-block;
+}
 
         .font-royal { 
             font-family: 'Amiri', serif; 
@@ -346,7 +363,7 @@
         }
 
         .rsvp-field::placeholder {
-            color: #8c7a61;
+            color: #fefefe;
             font-weight: 500;
         }
 
@@ -466,7 +483,7 @@
 
         .dawaqr-brand span {
             font-size: 13px;
-            color: #777;
+            color: #e3e3e3;
             letter-spacing: 2px;
             font-weight: bold;
             transition: color 0.4s ease, text-shadow 0.4s ease;
@@ -484,7 +501,7 @@
 
         .dawaqr-brand:hover span {
             color: var(--gold-bright);
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
@@ -494,7 +511,7 @@
     <!-- 1. شاشة الافتتاحية الملكية والفيديو الثابت -->
     <div id="intro" class="intro" onclick="startExperience()">
         <div class="click-to-play" id="clickOverlay">
-            <div class="click-text">اضغط للبدء</div>
+            <div class="click-text">Click Here</div>
         </div>
 
         <video id="introVideo" playsinline muted preload="auto" poster="assets/poster.jpg">
@@ -545,7 +562,7 @@
             
             <!-- 2. صورة الغلاف الافتتاحية بملء الشاشة -->
             <div class="fullscreen-hero">
-                <img src="assets/03.jpg" alt="دعوة زفاف ملكية">
+                <img src="assets/03.png" alt="دعوة زفاف ملكية">
             </div>
 
             <!-- بطاقة بشرى سارة -->
@@ -625,7 +642,7 @@
                 <h2 class="gold-text font-royal" style="font-size: 28px;">مكان اللقاء</h2>
                 <div class="divider" style="width: 40%;"></div>
                 <div style="font-size:26px; margin:10px 0; font-weight: bold; color:var(--gold-bright); font-family: 'Amiri', serif;">قاعة وادي القمر الملكية</div>
-                <div style="font-size:18px; color: #666; font-weight: 700;">طنطا / جمهورية مصر العربية</div>
+                <div style="font-size:18px; color: #666; font-weight: 700;">طريق المحلة طنطا</div>
             </section>
 
             <!-- 8. إطار خريطة جوجل -->
@@ -662,12 +679,12 @@
             </section>
 
             <!-- 11. تذييل وخاتمة كارت الدعوة -->
-            <div style="text-align:center; padding: 40px 0 60px; position:relative; z-index:5;">
+<div style="text-align:center; padding: 40px 0 60px; position:relative; z-index:5;">
                 <div class="divider" style="width: 50%;"></div>
-                <h2 class="font-royal gold-text" style="font-size:36px;">
+                <h2 class="font-royal" style="font-size:36px; color: #FFFFFF;">
                     عقبال عندكم جميعاً
                 </h2>
-                <h2 class="font-royal gold-text" style="font-size:36px;">
+                <h2 class="font-royal" style="font-size:36px; color: #FFFFFF;">
                     وربنا يجعل أيامكم كلها أفراح
                 </h2>
                 <div class="divider" style="width: 50%;"></div>
