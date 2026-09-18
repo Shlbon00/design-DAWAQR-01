@@ -630,16 +630,18 @@
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
-        // قراءة مسار الرابط وضمان البدء من الأعلى
+     // قراءة مسار الرابط لتحديد اللغة تلقائياً من نفس الملف الواحد
         document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo(0, 0);
             const pf = document.getElementById('phoneFrame');
             if (pf) pf.scrollTop = 0;
 
             const path = window.location.pathname.toLowerCase();
+            // إذا كان الرابط ينتهي بـ /en يتم تفعيل النسخة الإنجليزية تلقائياً
             if (path.includes('/en')) {
                 toggleLanguage(null, 'en');
-            } else if (path.includes('/ar')) {
+            } else {
+                // الافتراضي دائماً هي النسخة العربية
                 toggleLanguage(null, 'ar');
             }
         });
