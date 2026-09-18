@@ -4,18 +4,17 @@
 <head>
 
     <!-- وسوم المعاينة لبرامج التراسل (واتساب، فيسبوك، تويتر) -->
-    <meta property="og:title" content="دعوة زفاف أحمد وحبيبة 💍✨">
-    <meta property="og:description" content="تشرفنا حضوركم حفل زفافنا لنشاركه معاً أجمل لحظات العمر. اضغط هنا لتأكيد الحضور.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/79f84f82f9aa1484ee045897cc4204dfd655461f/assets/ww.jpg">
+    <meta property="og:title" content="AHMED & HABIBA 💍✨">
+    <meta property="og:description" content="نتشرف بدعوتكم لحضور فرحنا 🤍 • عشان فرحتنا مش هتحلى غير بيكم! • اضغط هنا">
+<meta property="og:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/main/assets/ww.jpg">
     <meta property="og:url" content="a-h.dawaqr.com">
     <meta property="og:type" content="website">
 
     <!-- للتحكم بحجم الصورة في واتساب -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="دعوة زفاف أحمد وحبيبة 💍✨">
-    <meta name="twitter:description" content="تشرفنا حضوركم حفل زفافنا لنشاركه معاً أجمل لحظات العمر.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/79f84f82f9aa1484ee045897cc4204dfd655461f/assets/ww.jpg">
-
+    <meta name="twitter:title" content="AHMED & HABIBA 💍✨">
+<meta name="twitter:description" content="نتشرف بدعوتكم لحضور فرحنا 🤍 • عشان فرحتنا مش هتحلى غير بيكم! • اضغط هنا">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/main/assets/ww.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>دعوة زفاف | أحمد وحبيبة</title>
@@ -507,17 +506,20 @@
                 </div>
             </section>
 
-            <!-- بطاقة 7: تنويه الأطفال -->
-            <section class="card compact">
-                <h2 class="title-text gold-text">
-                    <span class="lang-ar">نتمنى لأطفالكم ليلة سعيدة 🤍</span>
-                    <span class="lang-en">A Warm Note Regarding Children 🤍</span>
-                </h2>
-                <div class="divider"></div>
-                <p class="lang-ar body-text tajawal-bold" style="color: var(--emerald);">جنة الأطفال منازلهم</p>
-                <p class="lang-en body-text" style="color: var(--emerald); font-weight: 600;">While we love your little ones, this is an adults-only celebration.</p>
-            </section>
+   <!-- بطاقة 7: تنويه الأطفال -->
+<section class="card compact" style="text-align: center;">
+    <!-- أيقونة الأطفال مع ID مخصص للتحكم الكامل بها عبر الجافاسكريبت -->
+    <div id="childrenIconContainer" style="display: none; margin-bottom: 12px;">
+        <img src="https://api.iconify.design/fluent:people-24-filled.svg?color=%23cda45e" alt="Children" style="width: 48px; height: 48px; display: inline-block;">
+    </div>
 
+    <h2 class="title-text gold-text">
+        <span class="lang-ar">نتمنى لأطفالكم ليلة سعيدة 🤍</span>
+        <span class="lang-en">No children allowed</span>
+    </h2>
+    <div class="divider"></div>
+    <p class="lang-ar body-text tajawal-bold" style="color: var(--emerald);">جنة الأطفال منازلهم</p>
+</section>
             <!-- بطاقة 8: تأكيد الحضور (RSVP) -->
             <section class="card">
                 <h2 class="title-text gold-text">
@@ -604,7 +606,7 @@
         });
 
         // دالة تبديل اللغة (AR / EN)
-        function toggleLanguage(e, forceLang = null) {
+    function toggleLanguage(e, forceLang = null) {
             if (e) e.stopPropagation();
             const body = document.body;
             const arBadge = document.getElementById('arBadge');
@@ -637,6 +639,12 @@
                 nameInput.placeholder = "الاسم الكريم | Full Name";
                 wishInput.placeholder = "كلمة حلوة للعرسان.. ✨";
                 window.history.replaceState({}, '', '/AR');
+            }
+
+            // أضف هذا السطر هنا للتحكم في ظهور أو إخفاء أيقونة الأطفال بناءً على اللغة
+            const childrenIcon = document.getElementById('childrenIconContainer');
+            if (childrenIcon) {
+                childrenIcon.style.display = toEn ? 'block' : 'none';
             }
         }
 
