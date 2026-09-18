@@ -4,26 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>دعوة زفاف ملكية</title>
+    <title>دعوة زفاف | أحمد وحبيبة</title>
 
-    <!-- الخطوط الفاخرة المعتمدة للمناسبات الرسمية والملكية -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;900&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800;900&family=Tajawal:wght@200;300;400;500;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* --- متغيرات التصميم الملكي --- */
-        :root {
-            --browser-bg: #e8e7e3; 
-            --phone-width: 430px;
-            --gold-main: #bf953f;
-            --gold-bright: #ffffff;
-            --gold-dark: #8b6518;
-            
-            /* خلفية بيضاء عاجية شفافة بنسبة بسيطة جداً وراقية لتظهر الخلفية من تحتها */
-            --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(253, 251, 245, 0.45)); 
-            
-            --section-margin: 40px; 
-            --section-margin-compact: 25px;
+        /* ستايل النافذة المنبثقة الفاخرة */
+        .toast-modal { 
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); 
+            z-index: 999999; align-items: center; justify-content: center; 
+            backdrop-filter: blur(10px); pointer-events: auto; 
         }
+        .toast-card { 
+            background: var(--card-cream-translucent); border: 2px solid var(--gold-main); 
+            padding: 35px 25px; border-radius: 16px; text-align: center; 
+            max-width: 340px; width: 88%; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 15px rgba(205, 164, 94, 0.2); 
+            transform: scale(0.8); animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes popIn { to { transform: scale(1); } }
+
+        :root {
+            --phone-width: 430px;
+            --gold-main: #cda45e;
+            --gold-light: #f7e7c4;
+            --gold-dark: #a87e38;
+            --emerald: #14241a; 
+            --emerald-light: #203a29;
+            --text-dark: #231c15;
+            --card-cream-translucent: rgba(252, 249, 242, 0.93);
+            --section-margin: 28px; 
+            --section-margin-compact: 18px;
+        }
+
+        .font-kufi { font-family: "Noto Kufi Arabic", sans-serif; font-optical-sizing: auto; }
+        .tajawal-medium { font-family: "Tajawal", sans-serif; font-weight: 500; }
+        .tajawal-bold { font-family: "Tajawal", sans-serif; font-weight: 700; }
 
         * {
             margin: 0;
@@ -32,488 +48,275 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html, body {
+            scroll-behavior: auto;
+        }
+
         body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--browser-bg); 
+            font-family: "Tajawal", sans-serif;
+            background-color: #0d1711; 
             display: flex;
             justify-content: center;
             min-height: 100vh;
-            color: #2c2519; 
+            color: var(--text-dark); 
             overflow-y: auto;
             overflow-x: hidden;
-        }
-
-        .phone-frame {
-    position: relative;
-    width: 100%;
-    max-width: var(--phone-width);
-    min-height: 100dvh;
-    /* قمنا بحذف اللون الثابت من هنا ليظهر ما خلفه */
-    box-shadow: 0 0 60px rgba(191, 149, 63, 0.25); 
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.bg-wrapper {
-    position: fixed; /* يجعل الصورة ثابتة تماماً في الشاشة */
-    top: 0;
-    /* نحافظ على تمركز الخلفية داخل إطار الهاتف فقط */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: var(--phone-width);
-    height: 100vh;
-    z-index: 0;
-    pointer-events: none;
-    
-    /* إضافة الصورة الثابتة */
-    background-image: url('assets/04.png'); /* 👈 ضع مسار واسم صورتك هنا */
-    background-size: cover; /* لملء الشاشة بالكامل */
-    background-position: center; /* توسيط الصورة */
-    background-repeat: no-repeat; /* منع تكرار الصورة */
-    
-    /* يمكنك إضافة نسبة شفافية إذا كانت الصورة داكنة أو فاتحة جداً (اختياري) */
-    /* opacity: 0.8; */
-}
-
-        /* --- شاشة الافتتاحية والفيديو --- */
-        .intro {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: var(--phone-width);
-            height: 100%;
-            background: #fdfbf7;
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .intro video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* --- زر "اضغط للبدء" النابض (جديد) --- */
-        .click-to-play {
-            position: absolute;
-            z-index: 100000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-
-        .click-ring {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: rgba(191, 149, 63, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(191, 149, 63, 0.6);
-            animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-
-        .click-ring::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 15px solid #fff;
-            margin-left: 5px;
-        }
-
-        .click-text {
-    /* لون النص (يمكنك تغييره لأي لون تريده، استخدمت هنا اللون الذهبي الأساسي) */
-    color: var(--gold-main); 
-    font-family: 'Amiri', serif;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-top: 320px; 
-    
-    padding: 12px 40px; 
-    
-    /* جعل الخلفية شفافة بالكامل */
-    background: transparent; 
-    
-    /* إطار خارجي بنفس لون النص (سُمكه 2 بيكسل ليكون واضحاً) */
-    border: 2px solid var(--gold-main); 
-    border-radius: 50px; 
-    
-    /* ظل خفيف جداً وتأثير زجاجي بسيط لضمان وضوح الزر فوق الفيديو */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-    backdrop-filter: blur(3px); 
-    -webkit-backdrop-filter: blur(3px);
-    
-    animation: float-text 2s infinite ease-in-out;
-}
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(191, 149, 63, 0); }
-            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(191, 149, 63, 0); }
-        }
-
-        @keyframes float-text {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        /* --- التحولات والخلفيات --- */
-        .white-transition {
-            position: fixed;
-            inset: 0;
-            background: #fff;
-            z-index: 99998;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.8s ease;
-        }
-
-        .white-transition.active { opacity: 1; }
-
-
-        /* --- تساقط الأوراق الذهبية (مُحسّن لتسريع الأداء) --- */
-        .leaf-container {
-            position: fixed; 
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            max-width: var(--phone-width);
-            width: 100%;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 10; 
-        }
-
-        .leaf {
-            position: absolute;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23bf953f" opacity="0.4"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-            will-change: transform, opacity;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translate3d(0, -50px, 0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            /* استخدام translate3d يمنع اللاق */
-            100% { transform: translate3d(0, 110vh, 0) rotate(360deg); opacity: 0; } 
-        }
-
-        /* --- الكروت الزجاجية الملكية المحسنة للفخامة العالية --- */
-        .glass-card {
-            position: relative;
-            margin: var(--section-margin) 25px; 
-            padding: 45px 30px;
-            border-radius: 20px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(165, 128, 49, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-            opacity: 0;
-            transform: translateY(40px) scale(0.98); /* تأثير مقاس خفيف */
-            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-            border: 1px solid rgba(191, 149, 63, 0.3);
-            will-change: transform, opacity;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            inset: 8px;
-            border: 1px dashed rgba(191, 149, 63, 0.25);
-            border-radius: 14px;
-            pointer-events: none;
-        }
-        
-        .glass-card.compact {
-            margin: var(--section-margin-compact) 25px;
-            padding: 30px 25px;
-        }
-
-        .glass-card.show { opacity: 1; transform: translateY(0) scale(1); }
-
-        .divider {
-            width: 50%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
-            margin: 20px auto;
-            opacity: 0.7;
-        }
-
-        /* --- القائمة العائمة الفاخرة --- */
-        .menu-container {
-            position: fixed;
-            bottom: 30px;
-            left: calc(50% - 195px);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        @media(max-width: 430px) { .menu-container { left: 20px; } }
-
-        .main-menu-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #fcf6ba, var(--gold-main));
-            border: 2px solid #fff;
-            box-shadow: 0 5px 20px rgba(188, 149, 63, 0.35);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s;
-            z-index: 1001;
-        }
-
-        .sub-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .sub-menu.open { opacity: 1; transform: translateY(0); pointer-events: all; }
-
-        .menu-item {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--gold-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        /* --- النصوص --- */
-        .gold-text {
-    color: #2c2100; /* لون أبيض سكري ناعم */
-    font-weight: 700;
-    display: inline-block;
-}
-
-        .font-royal { 
-            font-family: 'Amiri', serif; 
-            font-weight: 700;
-        }
-
-        /* --- العداد الزمني الكريستالي --- */
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 25px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .time-box {
-            background: rgba(255, 255, 255, 0.75);
-            border-radius: 10px;
-            padding: 15px 5px;
-            text-align: center;
-            border: 1px solid rgba(191, 149, 63, 0.25);
-            box-shadow: 0 4px 15px rgba(191, 149, 63, 0.05);
-        }
-
-        .time-box div { font-size: 26px; font-weight: 700; color: #735318; font-family: 'Amiri', serif; }
-        .time-box span { font-size: 13px; color: #555; font-family: 'Tajawal', sans-serif; font-weight: 500; }
-
-        /* --- الحقول والأزرار بتصميم شفاف وراقٍ --- */
-        .rsvp-field {
-            width: 100%;
-            padding: 14px;
-            margin-top: 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(191, 149, 63, 0.4);
-            background: rgba(255, 255, 255, 0.65); /* شبه شفاف */
-            color: #443622;
-            font-weight: 600;
-            outline: none;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 15px;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 2;
-        }
-
-        .rsvp-field::placeholder {
-            color: #fefefe;
-            font-weight: 500;
-        }
-
-        .rsvp-field:focus {
-            border-color: var(--gold-main);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 10px rgba(191, 149, 63, 0.15);
-        }
-
-        select.rsvp-field {
-            cursor: pointer;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-
-        .rsvp-submit-btn {
-            width: 100%;
-            margin-top: 25px;
-            padding: 16px;
-            border: none;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold-main));
-            color: #fff;
-            font-weight: 700;
-            font-size: 18px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(191, 149, 63, 0.25);
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-family: 'Tajawal', sans-serif;
-            position: relative;
-            z-index: 2;
-        }
-
-        .rsvp-submit-btn:active { transform: scale(0.97); }
-
-        /* نافذة عرض الخريطة */
-        .map-container { 
-            height: 260px; 
-            padding: 0; 
-            overflow: hidden; 
-            border-radius: 16px; 
-            border: 2px solid rgba(191,149,63,0.3); 
-            cursor: pointer; 
-        }
-
-        .map-container iframe { 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-            pointer-events: none; 
-        }
-        
-        .poem-text {
-            color: #3a3121;
-            font-size: 24px;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            font-family: 'Amiri', serif;
-            font-weight: 700;
-        }
-
-        .fullscreen-hero {
-            position: relative;
-            width: 100%;
-            height: 100vh; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2;
-        }
-
-        .fullscreen-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: fill; 
-            animation: revealName 2s forwards cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        /* تنسيق الأيقونات مع حركة تنفس خفيفة وفخمة */
-        .royal-icon {
-            font-size: 36px;
-            margin-bottom: 10px;
-            display: inline-block;
-            filter: drop-shadow(0 2px 5px rgba(191,149,63,0.25));
-            position: relative;
-            z-index: 2;
-            animation: elegant-float 3s ease-in-out infinite;
-        }
-
-        @keyframes elegant-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-        @keyframes revealName {
-            from { opacity: 0; transform: scale(0.96); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* --- تأثيرات شعار دعوة كيو آر (جديد ومحسن) --- */
-        .dawaqr-brand {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            gap: 10px;
-            opacity: 0.85;
             transition: all 0.4s ease;
         }
 
-        .dawaqr-brand img {
-            width: 90px;
-            height: auto;
-            transition: transform 0.4s ease, filter 0.4s ease;
+        body.en-mode { font-family: 'Playfair Display', serif; }
+
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            max-width: var(--phone-width);
+            min-height: 100dvh;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6); 
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
-        .dawaqr-brand span {
-            font-size: 13px;
-            color: #e3e3e3;
-            letter-spacing: 2px;
-            font-weight: bold;
-            transition: color 0.4s ease, text-shadow 0.4s ease;
+        .bg-wrapper {
+            position: fixed;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: var(--phone-width); height: 100vh;
+            z-index: 0; pointer-events: none;
+            background-image: url('assets/04.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        
+        .bg-overlay {
+            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: var(--phone-width); height: 100vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(20,36,26,0.22) 100%);
+            z-index: 1; pointer-events: none;
         }
 
-        /* التأثير عند تمرير الماوس */
-        .dawaqr-brand:hover {
+        /* شاشة الافتتاحية */
+        .intro {
+            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: var(--phone-width); height: 100%;
+            background: #18221b; z-index: 99999; display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+        }
+        .intro video { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+        .click-to-play {
+            position: absolute; z-index: 100000; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; pointer-events: none;
+        }
+        
+        /* زر OPEN مشع بدون أي خلفية */
+        .click-text {
+            color: #ffffff; 
+            font-family: 'Cinzel', serif; 
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: 10px;
+            padding: 14px 44px; 
+            border: 2px solid rgba(255, 255, 255, 0.9); 
+            border-radius: 8px; 
+            background: transparent !important; 
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            margin-top: 330px;
+            box-shadow: 0 0 35px rgba(255, 255, 255, 1), 
+                        0 0 60px rgba(205, 164, 94, 0.8), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 14px #ffffff, 0 0 25px var(--gold-light);
+            animation: intense-glow 1.8s infinite alternate ease-in-out;
+        }
+
+        @keyframes intense-glow {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 
+                            0 0 45px rgba(205, 164, 94, 0.6), 
+                            inset 0 0 10px rgba(255, 255, 255, 0.4); 
+                text-shadow: 0 0 10px #ffffff;
+            }
+            100% { 
+                transform: scale(1.04);
+                box-shadow: 0 0 45px rgba(255, 255, 255, 1), 
+                            0 0 85px rgba(205, 164, 94, 0.95), 
+                            inset 0 0 22px rgba(255, 255, 255, 0.8); 
+                text-shadow: 0 0 20px #ffffff, 0 0 35px var(--gold-light);
+            }
+        }
+
+        .white-transition {
+            position: fixed; inset: 0; background: #fff; z-index: 99998;
+            opacity: 0; pointer-events: none; transition: opacity 0.8s ease;
+        }
+        .white-transition.active { opacity: 1; }
+
+        .leaf-container {
+            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
+            max-width: var(--phone-width); width: 100%; height: 100vh;
+            pointer-events: none; z-index: 10; 
+        }
+        .leaf {
+            position: absolute;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23cda45e" opacity="0.6"><path d="M12,2L15,9L22,12L15,15L12,22L9,15L2,12L9,9L12,2Z"/></svg>');
+            background-size: contain; background-repeat: no-repeat;
+            will-change: transform, opacity; animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translate3d(0, -50px, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
+            100% { transform: translate3d(0, 110vh, 0) rotate(180deg); opacity: 0; } 
+        }
+
+        .card {
+            position: relative; 
+            margin: var(--section-margin) 16px; 
+            padding: 38px 22px;
+            border-radius: 12px; 
+            background: var(--card-cream-translucent);
+            backdrop-filter: blur(14px); 
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26); 
+            border: 1px solid rgba(205, 164, 94, 0.45);
+            text-align: center; 
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(35px) scale(0.97);
+            transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), 
+                        transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+        }
+
+        .card.active {
             opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
-        .dawaqr-brand:hover img {
-            transform: scale(1.08);
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+        .card::after {
+            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 1px solid rgba(205, 164, 94, 0.28); border-radius: 8px; pointer-events: none;
+        }
+        .card.green-theme {
+            background: rgba(20, 36, 26, 0.93); color: #fff;
+            border: 1px solid rgba(205, 164, 94, 0.6); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+        }
+        .card.green-theme p { color: #f2ebd9; }
+        .card.green-theme::after { border-color: rgba(232, 208, 152, 0.25); }
+        .card.compact { margin: var(--section-margin-compact) 16px; padding: 28px 18px; }
+
+        .divider {
+            width: 70%; height: 1px; margin: 16px auto; position: relative;
+            background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+        }
+        .divider::after {
+            content: '✧'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 13px; color: var(--gold-main); background: transparent; padding: 0 10px;
+        }
+        .card.green-theme .divider::after { color: var(--gold-light); }
+
+        .gold-text { color: var(--gold-dark); }
+        .card.green-theme .gold-text { color: var(--gold-light); }
+        
+        .title-text { 
+            font-family: "Noto Kufi Arabic", sans-serif; 
+            font-weight: 700;
+            font-size: 24px; 
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        body.en-mode .title-text { font-family: 'Cinzel', serif; font-size: 21px; }
+
+        .body-text { 
+            font-family: "Tajawal", sans-serif; 
+            font-size: 18.5px; 
+            line-height: 1.85; 
+            font-weight: 500;
+        }
+        body.en-mode .body-text { font-family: 'Playfair Display', serif; font-size: 16.5px; line-height: 1.75; }
+
+        .hero-banner-wrap {
+            position: relative; width: 100%; margin: 0; padding: 0; z-index: 2; line-height: 0;
         }
 
-        .dawaqr-brand:hover span {
-            color: var(--gold-bright);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        .hero-names-img {
+            width: 100%; height: auto; display: block; margin: 0; padding: 0; mix-blend-mode: screen; 
+            opacity: 0; animation: heroReveal 1.6s forwards 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
+
+        @keyframes heroReveal { to { opacity: 1; transform: scale(1); } }
+
+        .countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
+        .time-box {
+            background: rgba(255, 255, 255, 0.65); border-radius: 8px; padding: 12px 4px;
+            border: 1px solid rgba(205, 164, 94, 0.45); box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        .time-box div { font-size: 23px; font-weight: 800; color: var(--emerald); font-family: "Noto Kufi Arabic", sans-serif; }
+        .time-box span { font-size: 12.5px; color: var(--text-dark); font-weight: 700; font-family: "Tajawal", sans-serif; }
+        body.en-mode .time-box div { font-family: 'Playfair Display', serif; }
+        body.en-mode .time-box span { font-family: 'Playfair Display', serif; }
+
+        .action-btn-outline {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; padding: 11px 22px;
+            border-radius: 6px; border: 1.5px solid var(--gold-main); color: var(--gold-light); background: rgba(255, 255, 255, 0.08);
+            text-decoration: none; font-family: "Noto Kufi Arabic", sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+        }
+        body.en-mode .action-btn-outline { font-family: 'Cinzel', serif; font-size: 12.5px; letter-spacing: 1px; }
+        .action-btn-outline:hover { background: var(--gold-main); color: var(--emerald); }
+
+        .rsvp-field {
+            width: 100%; padding: 14px; margin-top: 12px; border-radius: 8px; border: 1.5px solid rgba(205, 164, 94, 0.5); 
+            background: rgba(255, 255, 255, 0.8); color: var(--text-dark); font-weight: 600; outline: none; 
+            font-family: 'Tajawal', sans-serif; font-size: 15px; transition: all 0.3s ease; position: relative; z-index: 2;
+        }
+        body.en-mode .rsvp-field { font-family: 'Playfair Display', serif; }
+        .rsvp-field:focus { border-color: var(--emerald); background: #ffffff; box-shadow: 0 0 0 3px rgba(26, 54, 38, 0.15); }
+        select.rsvp-field { cursor: pointer; }
+        
+        .rsvp-submit-btn {
+            width: 100%; margin-top: 22px; padding: 15px; border: none; border-radius: 8px;
+            background: linear-gradient(135deg, var(--emerald), var(--emerald-light)); color: #fff; font-weight: 700; font-size: 16px; 
+            cursor: pointer; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); transition: all 0.3s ease; font-family: "Noto Kufi Arabic", sans-serif; position: relative; z-index: 2;
+        }
+        body.en-mode .rsvp-submit-btn { font-family: 'Cinzel', serif; letter-spacing: 1px; }
+        .rsvp-submit-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+        .map-container { height: 250px; padding: 0; overflow: hidden; border-radius: 10px; border: 1.5px solid var(--gold-main); }
+        .map-container iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
+        .icon-svg { width: 36px; height: 36px; fill: var(--gold-dark); margin-bottom: 6px; }
+        .card.green-theme .icon-svg { fill: var(--gold-light); }
+
+        .lang-switch {
+            position: absolute; top: 16px; right: 16px; z-index: 10000; display: inline-flex; align-items: center;
+            background: rgba(20, 36, 26, 0.7); border: 1px solid var(--gold-main); border-radius: 30px; padding: 3px 6px;
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); cursor: pointer; user-select: none; transition: all 0.3s ease;
+        }
+        .lang-switch span { font-family: 'Cinzel', 'Noto Kufi Arabic', sans-serif; font-size: 11.5px; font-weight: 700; padding: 4px 9px; border-radius: 20px; color: #d1c7b7; transition: all 0.3s ease; }
+        .lang-switch span.active { background: var(--gold-main); color: #14241a; box-shadow: 0 0 10px rgba(205, 164, 94, 0.6); }
+
+        .lang-en { display: none; }
+        body.en-mode .lang-ar { display: none; }
+        body.en-mode .lang-en { display: block; }
+        body.en-mode span.lang-en { display: inline; }
+
+        .color-circles { display: flex; justify-content: center; gap: 35px; margin-top: 15px; }
+        .color-circle { width: 50px; height: 50px; border-radius: 50%; border: 1.5px solid var(--gold-main); position: relative; box-shadow: 0 6px 14px rgba(0,0,0,0.12); }
+        .color-circle::after { content: ''; position: absolute; top: 50%; left: -10%; width: 120%; height: 3px; background-color: #d93025; transform: translateY(-50%) rotate(-45deg); border-radius: 3px; }
+
+        .menu-container { position: fixed; bottom: 25px; left: 20px; z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .main-menu-btn { width: 52px; height: 52px; border-radius: 50%; background: var(--gold-main); border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); }
+        .sub-menu { display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: 0.3s; }
+        .sub-menu.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+        .menu-item { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.94); border: 1px solid var(--gold-main); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; cursor: pointer; }
     </style>
 </head>
 
 <body>
-    <!-- 1. شاشة الافتتاحية الملكية والفيديو الثابت -->
-    <!-- 1. شاشة الافتتاحية الملكية والفيديو الثابت -->
+    <!-- شاشة الافتتاحية -->
     <div id="intro" class="intro" onclick="startExperience()">
         <div class="click-to-play" id="clickOverlay">
-            <div class="click-text">Click Here</div>
+            <div class="click-text">OPEN</div>
         </div>
-
         <video id="introVideo" playsinline muted preload="auto" poster="assets/poster.jpg">
             <source src="assets/v01.mp4" type="video/mp4">
         </video>
@@ -521,192 +324,237 @@
 
     <div id="whiteTransition" class="white-transition"></div>
     
-    <div class="phone-frame">
+    <div class="phone-frame" id="phoneFrame">
         <div class="bg-wrapper"></div>
+        <div class="bg-overlay"></div> 
 
-        <!-- تساقط بتلات الزهور والأوراق المذهبة المتطايرة -->
+        <!-- شارة تبديل اللغة التفاعلية -->
+        <div class="lang-switch" onclick="toggleLanguage(event)">
+            <span id="arBadge" class="active">AR</span>
+            <span id="enBadge">EN</span>
+        </div>
+
         <div class="leaf-container" id="leafContainer"></div>
 
-        <!-- القائمة العائمة المستديرة الفاخرة للتحكم في الصوت والـ QR -->
+        <!-- القائمة العائمة -->
         <div class="menu-container">
             <div id="subMenu" class="sub-menu">
                 <div class="menu-item" onclick="toggleQRModal()">
-                    <svg viewBox="0 0 24 24" width="22" fill="#bf953f"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM13 13h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm-2 4h2v2h-2v-2zm2 2h2v2h-2v-2z"/></svg>
+                    <svg viewBox="0 0 24 24" width="20" fill="var(--emerald)"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM13 13h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm-2 4h2v2h-2v-2zm2 2h2v2h-2v-2z"/></svg>
                 </div>
                 <div class="menu-item" id="musicBtn" onclick="toggleMusic()">
-                    <svg id="musicIcon" viewBox="0 0 24 24" width="22" fill="#bf953f">
-                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-                    </svg>
+                    <svg id="musicIcon" viewBox="0 0 24 24" width="20" fill="var(--emerald)"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                 </div>
             </div>
             <button id="mainMenuBtn" class="main-menu-btn" onclick="toggleFloatingMenu()">
-                <svg viewBox="0 0 24 24" width="28" fill="#544015"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <svg viewBox="0 0 24 24" width="24" fill="#fff"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
             </button>
         </div>
 
-        <!-- نافذة باركود مشاركة الدعوة الكريستالية الفاخرة -->
-        <div id="qrModal" style="display:none; position:fixed; inset:0; background:rgba(255,255,255,0.92); z-index:10000; align-items:center; justify-content:center; backdrop-filter: blur(10px);" onclick="toggleQRModal()">
-            <div style="background: #fff; padding:35px; border-radius:20px; text-align:center; box-shadow: 0 20px 50px rgba(191,149,63,0.2); border: 2px solid var(--gold-main);" onclick="event.stopPropagation()">
-                <h3 class="font-royal" style="color:#2c2519; margin-bottom:20px; font-size: 26px;">شارك الدعوة</h3>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://A-H.DAWAQR.com" alt="QR" style="border-radius: 10px;">
+        <!-- نافذة الباركود -->
+        <div id="qrModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.82); z-index:10000; align-items:center; justify-content:center; backdrop-filter: blur(10px);" onclick="toggleQRModal()">
+            <div style="background: var(--card-cream-translucent); padding:35px 25px; border-radius:12px; text-align:center; border: 1.5px solid var(--gold-main); width: 85%; max-width: 320px;" onclick="event.stopPropagation()">
+                <h3 class="font-kufi gold-text" style="margin-bottom:20px; font-size: 20px;">
+                    <span class="lang-ar">شارك الدعوة</span>
+                    <span class="lang-en">Share Invitation</span>
+                </h3>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://A-H.DAWAQR.com" alt="QR" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
             </div>
         </div>
 
-        <!-- ملف الصوت والموسيقى المدمجة بالخلفية -->
         <audio id="audio" loop playsinline>
             <source src="assets/file.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- المحتوى الداخلي الرئيسي للدعوة الملكية -->
-        <div id="mainContainer" style="opacity:0; transition: opacity 1.5s;">
+        <!-- النافذة المنبثقة الفاخرة لرسائل الـ RSVP -->
+        <div id="rsvpToast" class="toast-modal" onclick="closeToast()">
+            <div class="toast-card" onclick="event.stopPropagation()">
+                <div id="toastIcon"></div>
+                <h3 id="toastTitle" class="font-kufi" style="color: var(--emerald); font-size: 22px; margin-bottom: 8px;"></h3>
+                <p id="toastMsg" class="tajawal-medium" style="color: var(--text-dark); font-size: 16px; line-height: 1.7;"></p>
+                <button onclick="closeToast()" class="rsvp-submit-btn" style="margin-top: 22px; padding: 12px 35px; width: auto; font-size: 15px;">
+                    <span class="lang-ar">حسناً</span>
+                    <span class="lang-en">OK</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mainContainer" style="opacity:0; transition: opacity 1.2s; position:relative; z-index:2; padding:0; margin:0;">
             
-            <!-- 2. صورة الغلاف الافتتاحية بملء الشاشة -->
-            <div class="fullscreen-hero">
-                <img src="assets/03.png" alt="دعوة زفاف ملكية">
+            <div class="hero-banner-wrap">
+                <img src="assets/03.png" class="hero-names-img" alt="أحمد وحبيبة">
             </div>
 
-            <!-- بطاقة بشرى سارة -->
-            <section class="glass-card reveal" style="text-align:center;">
-                <span class="royal-icon">✨</span>
-                <h2 class="gold-text font-royal" style="font-size: 32px;">بداية حكاية</h2>
+            <!-- بطاقة 1: الترحيب والافتتاحية -->
+            <section class="card">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">الفرحة ما تكملش إلا بيكم</span>
+                    <span class="lang-en">Our Joy Is Complete With You</span>
+                </h2>
                 <div class="divider"></div>
-                <p style="line-height:2.1; font-size:20px; color: #3a3121; font-family: 'Amiri', serif; font-weight: 700;">
-                   عشان انتوا جزء اصيل من حياتنا وحكايتنا حابين تشاركونا اسعد لحظة فيها<br>
-                   بكل الحب بندعوكم تنوروا ليلتنا وتفرحوا معانا ببداية رحلتنا الجديدة<br>
-                   حضوركم هو اللي هيخلي ليلة احمد وحبيبة ليلة متتنسيش
+                <p class="lang-ar body-text">
+                  يسعدنا ويشرفنا إنكم تكونوا معانا وتشاركونا فرحتنا في ليلتنا المنتظرة 🤍<br>
+                  حضوركم ينوّر فرحنا ويسعد قلوبنا.
+                </p>
+                <p class="lang-en body-text">
+                   It is our absolute pleasure to invite you to celebrate our most awaited night 🤍<br>
+                   Your presence will truly brighten our celebration and fill our hearts with joy.
                 </p>
             </section>
 
-            <!-- 3. بطاقة العداد التنازلي -->
-            <section class="glass-card reveal" style="text-align:center;">
-                <h2 class="gold-text font-royal" style="font-size: 32px;">الأيــام تجمعنــا</h2>
+            <!-- بطاقة 2: العداد التنازلي -->
+            <section class="card">
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">العد التنازلي لأجمل يوم</span>
+                    <span class="lang-en">Counting Down to the Big Day</span>
+                </h2>
                 <div class="divider"></div>
                 <div class="countdown-grid">
-                    <div class="time-box"><div id="days">00</div><span>يوم</span></div>
-                    <div class="time-box"><div id="hours">00</div><span>ساعة</span></div>
-                    <div class="time-box"><div id="minutes">00</div><span>دقيقة</span></div>
-                    <div class="time-box"><div id="seconds">00</div><span>ثانية</span></div>
+                    <div class="time-box"><div id="days">00</div><span class="lang-ar">يوم</span><span class="lang-en">Days</span></div>
+                    <div class="time-box"><div id="hours">00</div><span class="lang-ar">ساعة</span><span class="lang-en">Hours</span></div>
+                    <div class="time-box"><div id="minutes">00</div><span class="lang-ar">دقيقة</span><span class="lang-en">Mins</span></div>
+                    <div class="time-box"><div id="seconds">00</div><span class="lang-ar">ثانية</span><span class="lang-en">Secs</span></div>
                 </div>
             </section>
 
-            <!-- 4. تفاصيل نص الدعوة -->
-            <section class="glass-card reveal" style="text-align:center;">
-                <h1 class="font-royal gold-text" style="font-size:42px; margin-bottom: 10px;">دعوة زفاف ملكية</h1>
+            <!-- بطاقة 3: تاريخ وموعد الفرح + الرابط المباشر للتقويم -->
+            <section class="card green-theme compact">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">تــاريخ فرحنـا</span>
+                    <span class="lang-en">Wedding Date</span>
+                </h2>
                 <div class="divider"></div>
+                <div style="font-size:22px; margin:10px 0;" class="font-kufi">
+                    <span class="lang-ar">الثلاثاء 13 أكتوبر 2026</span>
+                    <span class="lang-en">Tuesday, October 13, 2026</span>
+                </div>
+                <div style="font-size:19px; margin-top:6px;" class="font-kufi">
+                    <span class="lang-ar">الساعة 7:00 مساءً</span>
+                    <span class="lang-en">At 7:00 PM</span>
+                </div>
                 
-                <div class="poem-text">
-                   بكل الحب والمودة يسعدنا ويشرفنا دعوتكم لمشاركتنا فرحتنا الكبرى وبداية رحلتنا الجديدة 🎉<br>
-                </div>
-
-                <p style="line-height:2.2; margin-top:25px; font-size:20px; color: #3a3121; font-family: 'Amiri', serif;">
-                   ليلتنا الموعودة هتزداد نور بحضوركم<br>
-                   ولحظاتنا السعيدة مش هتكمل الا بوجودكم الغالي<br>
-                   وسطنا ننتظركم عشان نرسم سوا اجمل الذكريات في ليلة مليانة مودة وسكينة<br>
-                   ✨💍<br><br>
-                    <span style="color: var(--gold-bright); font-weight: bold; font-size: 21px;">حضوركم شرف لينا وسعادة لا توصف لقلوبنا🤍</span>
-                </p>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D8%B2%D9%81%D8%A7%D9%81+%D8%A3%D8%AD%D9%85%D8%AF+%D9%88%D8%AD%D8%A8%D9%8A%D8%A8%D8%A9+%F0%9F%92%8D&dates=20261013T160000Z/20261013T210000Z&details=%D9%86%D8%AA%D8%B4%D8%B1%D9%81+%D8%A8%D8%AD%D8%B6%D9%88%D8%B1%D9%83%D9%85+%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%83%D8%AA%D9%86%D8%A7+%D9%81%D8%B1%D8%AD%D8%AA%D9%86%D8%A7+%D9%81%D9%8A+%D9%84%D9%8A%D9%84%D8%A9+%D8%A7%D9%84%D8%B9%D9%85%D8%B1%0A%0A%D8%A7%D9%84%D9%84%D9%88%D9%83%D9%8A%D8%B4%D9%86%3A%0Ahttps%3A%2F%2Fmaps.app.goo.gl%2FtqjbuYiCzNrfftjH6&location=%D9%82%D8%A7%D8%B9%D8%A9+%D9%88%D8%A7%D8%AF%D9%8A+%D8%A7%D9%84%D9%82%D9%85%D8%B1+-+%D8%B7%D8%B1%D9%8A%D9%82+%D8%A7%D9%84%D9%85%D8%AD%D9%84%D8%A9+%D8%B7%D9%86%D8%B7%D8%A7" target="_blank" rel="noopener noreferrer" class="action-btn-outline">
+                    <svg viewBox="0 0 24 24" width="16" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+                    <span class="lang-ar">حفظ الموعد في التقويم</span>
+                    <span class="lang-en">Add to Calendar</span>
+                </a>
             </section>
 
-            <!-- بطاقة صبايا العيلة -->
-            <section class="glass-card reveal" style="text-align:center;">
-                <span class="royal-icon">👑</span>
-                <h2 class="gold-text font-royal" style="font-size: 32px;">يا اغلى الحبايب صحابنا واخواتنا</h2>
-                <div class="divider" style="width: 50%;"></div>
-                <p style="line-height:2; font-size:19px; color: #423827; font-family: 'Amiri', serif; font-weight: 700;">
-                   الفرحة مابتكملش غير بلمتكم حوالينا انتوا احلى حاجة في دنيتنا واليوم ده متفصل عشان نفرح كلنا سوا<br>
-                   مستنيينكم نعمل ذكريات تفضل معانا العمر كله بوجودكم وضحكتكم اللي هتنور ليلتنا بجد 💕
-                </p>
-            </section>
-
-            <!-- 5. بطاقة تاريخ الفرح -->
-            <section class="glass-card reveal compact" style="text-align:center;">
-                <span class="royal-icon">📅</span>
-                <h2 class="gold-text font-royal" style="font-size: 28px;">اليوم الموعود</h2>
-                <div class="divider" style="width: 40%;"></div>
-                <div style="font-size:24px; margin:10px 0; font-weight: 700; color: #3a3121; font-family: 'Amiri', serif;">يوم الثلاثاء المبارك</div>
-                <div style="color:var(--gold-bright); font-size: 24px; font-weight: bold; font-family: 'Amiri', serif;">13 أكتوبر 2026</div>
-            </section>
-
-            <!-- 6. بطاقة موعد استقبال -->
-            <section class="glass-card reveal compact" style="text-align:center;">
-                <span class="royal-icon">🕗</span>
-                <h2 class="gold-text font-royal" style="font-size: 28px;">موعد الفرحة</h2>
-                <div class="divider" style="width: 40%;"></div>
-                <div style="font-size:23px; margin:10px 0; font-weight: 700; color: #3a3121; font-family: 'Amiri', serif;">بنستناكم تشرفونا وتنوروا فرحتنا من الساعة</div>
-                <div style="color:var(--gold-bright); font-size: 26px; font-weight: bold; font-family: 'Amiri', serif;">8:00 مساءً</div>
-            </section>
-
-            <!-- 7. بطاقة اسم وموقع القاعة -->
-            <section class="glass-card reveal compact" style="text-align:center;">
-                <span class="royal-icon">📍</span>
-                <h2 class="gold-text font-royal" style="font-size: 28px;">مكان اللقاء</h2>
-                <div class="divider" style="width: 40%;"></div>
-                <div style="font-size:26px; margin:10px 0; font-weight: bold; color:var(--gold-bright); font-family: 'Amiri', serif;">قاعة وادي القمر الملكية</div>
-                <div style="font-size:18px; color: #666; font-weight: 700;">طريق المحلة طنطا</div>
-            </section>
-
-            <!-- 8. إطار خريطة جوجل -->
-            <section class="glass-card reveal map-container" onclick="window.open('https://maps.app.goo.gl/tqjbuYiCzNrfftjH6')">
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.3614184580833!2d31.109580524955593!3d30.904520377310998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ba239a32d8f7%3A0x1dbfcc6831d017ab!2sWady%20Elamar!5e0!3m2!1sar!2skw!4v1780065135383!5m2!1sar!2skw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </section>
-
-            <!-- 9. نموذج تأكيد الحضور المحسن (RSVP) -->
-            <section class="glass-card reveal" style="text-align:center;">
-                <h2 class="gold-text font-royal" style="font-size: 32px;">لأن ليلتنا لا تحلو إلا بوجودكم</h2>
+            <!-- بطاقة 4: مكان الحفل -->
+            <section class="card green-theme compact">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">مكان فرحتنا</span>
+                    <span class="lang-en">Wedding Venue</span>
+                </h2>
                 <div class="divider"></div>
-                <p style="margin-bottom: 15px; font-size: 16px; color: #443622; font-weight: 700;">ولأن فرحتنا لا تكتمل إلا بلقائكم</p>
-                <p style="margin-bottom: 15px; font-size: 16px; color: #443622; font-weight: 700;">يسعدنا تأكيد حضوركم</p>
+                <div style="font-size:22px; margin:10px 0;" class="font-kufi">
+                    <span class="lang-ar">قاعة وادي القمر - Green Valley</span>
+                    <span class="lang-en">Green Valley Hall</span>
+                </div>
+                <div style="font-size:18px;" class="tajawal-medium">
+                    <span class="lang-ar">طريق المحلة طنطا</span>
+                    <span class="lang-en">Mahalla - Tanta Road</span>
+                </div>
+            </section>
 
-                <input id="name" placeholder="برجاء كتابة الاسم الكريم هنا" class="rsvp-field">
+            <!-- بطاقة 5: خريطة الموقع -->
+            <section class="card compact map-container" onclick="window.open('https://maps.app.goo.gl/tqjbuYiCzNrfftjH6')">
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.3614184580833!2d31.109580524955593!3d30.904520377310998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ba239a32d8f7%3A0x1dbfcc6831d017ab!2sWady%20Elamar!5e0!3m2!1sar!2skw!4v1780065135383!5m2!1sar!2skw" loading="lazy"></iframe>
+            </section>
+
+            <!-- بطاقة 6: Dress Code -->
+            <section class="card compact">
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">Dress Code</span>
+                    <span class="lang-en">Dress Code</span>
+                </h2>
+                <div class="divider"></div>
+                <p class="lang-ar body-text" style="font-size: 16.5px; margin-bottom: 8px;">نرجو التكرم بتجنب اللونين دول لمناسبتهم الخاصة بالعروسين:</p>
+                <p class="lang-en body-text" style="font-size: 15.5px; margin-bottom: 8px;">We kindly ask our guests to avoid wearing white and off-white:</p>
+                <div class="color-circles">
+                    <div style="text-align: center;">
+                        <div class="color-circle" style="background: #fff;"></div>
+                        <span class="lang-ar font-kufi" style="font-size: 13px; font-weight: 700; margin-top: 6px; display: block;">أبيض</span>
+                        <span class="lang-en" style="font-size: 14px; margin-top: 6px; display: block;">White</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="color-circle" style="background: #FAF9F6;"></div>
+                        <span class="lang-ar font-kufi" style="font-size: 13px; font-weight: 700; margin-top: 6px; display: block;">أوف وايت</span>
+                        <span class="lang-en" style="font-size: 14px; margin-top: 6px; display: block;">Off-White</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- بطاقة 7: تنويه الأطفال -->
+            <section class="card compact">
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">نتمنى لأطفالكم ليلة سعيدة 🤍</span>
+                    <span class="lang-en">A Warm Note Regarding Children 🤍</span>
+                </h2>
+                <div class="divider"></div>
+                <p class="lang-ar body-text tajawal-bold" style="color: var(--emerald);">جنة الأطفال منازلهم</p>
+                <p class="lang-en body-text" style="color: var(--emerald); font-weight: 600;">While we love your little ones, this is an adults-only celebration.</p>
+            </section>
+
+            <!-- بطاقة 8: تأكيد الحضور (RSVP) -->
+            <section class="card">
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">تأكيد حضوركم</span>
+                    <span class="lang-en">RSVP</span>
+                </h2>
+                <div class="divider"></div>
+                <p class="lang-ar body-text" style="font-size: 16px; margin-bottom: 6px;">وجودكم شرف لينا ويسعدنا معرفة تأكيدكم لتجهيز أفضل استقبال</p>
+                <p class="lang-en body-text" style="font-size: 15px; margin-bottom: 6px;">We would be honored by your presence. Please confirm your attendance below:</p>
+                
+                <input id="name" placeholder="الاسم الكريم | Full Name" class="rsvp-field">
+                
                 <select id="attendance" class="rsvp-field">
-                    <option value="yes">بكل سرور هكون متواجد وبشارككم الفرحة 🎉</option>
-                    <option value="no">بعتذر عن الحضور.. قلبي ودعواتي الصادقة معاكم</option>
+                    <option value="yes">هاجي إن شاء الله أشارككم الفرحة 🎉</option>
+                    <option value="no">مش هقدر للأسف، ربنا يتمملكم على خير</option>
                 </select>
                 
-                <textarea id="guest_wish" placeholder="اكتب كلمة حلوة أو دعوة صادقة من قلبك للعروسين.. ✨" class="rsvp-field" style="height: 100px; resize: none;"></textarea>
+                <textarea id="guest_wish" placeholder="كلمة حلوة للعرسان.. ✨" class="rsvp-field" style="height: 100px; resize: none;"></textarea>
                 
-                <button onclick="sendRSVP()" class="rsvp-submit-btn">إرسال التأكيد من القلب</button>
+                <button type="button" onclick="sendRSVP()" class="rsvp-submit-btn">
+                    <span class="lang-ar">إرسال التأكيد</span>
+                    <span class="lang-en">Submit RSVP</span>
+                </button>
             </section>
 
-            <!-- 10. بطاقة التنويه عن الأطفال -->
-            <section class="glass-card reveal compact" style="text-align:center;">
-                <p style="line-height:2; font-size:19px; color:#3a3121; font-family: 'Amiri', serif; font-weight: bold;">
-                    <span class="royal-icon" style="font-size: 26px;">🌸</span><br>
-                   عشان سهرتنا تحلى وتعيشوا معانا الفرحة بكل تفاصيلها براحتكم<br>
-                   نستأذنكم إن الحضور مقتصر على <span style="color: var(--gold-bright); font-weight: bold;">الكبار فقط</span><br>
-                   نتمنى لأطفالنا الحلوين ليلة هادية وعقبال ما نفرح بيهم جميعاً🤍
-                </p>
-            </section>
-
-            <!-- 11. تذييل وخاتمة كارت الدعوة -->
-<div style="text-align:center; padding: 40px 0 60px; position:relative; z-index:5;">
-                <div class="divider" style="width: 50%;"></div>
-                <h2 class="font-royal" style="font-size:36px; color: #FFFFFF;">
-                    عقبال عندكم جميعاً
+            <!-- خاتمة الدعوة -->
+            <div style="text-align:center; padding: 25px 0 50px;">
+                <h2 class="lang-ar font-kufi" style="font-size:22px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.9); line-height: 1.8;">
+                    عقبالكم جميعاً يا رب..<br>وبيوتكم دايماً عامرة بالأفراح
                 </h2>
-                <h2 class="font-royal" style="font-size:36px; color: #FFFFFF;">
-                    وربنا يجعل أيامكم كلها أفراح
+                <h2 class="lang-en" style="font-size:20px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-family: 'Cinzel', serif;">
+                    Wishing you all joy and love in your homes
                 </h2>
-                <div class="divider" style="width: 50%;"></div>
-            </div>
-
-            <!-- لوجو دعوة كيو آر المحدثة بتأثيرات الـ Hover -->
-            <div style="text-align:center; padding: 0 0 30px; position:relative; z-index:5;">
-                <a href="https://www.dawaqr.com" target="_blank" class="dawaqr-brand">
-                    <img src="assets/dawaqr.png" alt="Dawaqr Logo">
-                    <span>WWW.DAWAQR.COM</span>
+                
+                <a href="https://www.dawaqr.com" target="_blank" style="display:inline-block; margin-top:25px; text-decoration:none;">
+                    <img src="assets/dawaqr.png" alt="Dawaqr" style="width:85px; filter: brightness(0) invert(1) opacity(0.85);">
+                    <div style="font-family: 'Cinzel', serif; font-size:11px; color: rgba(255,255,255,0.8); font-weight:600; letter-spacing:2px; margin-top:5px;">DAWAQR</div>
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- برمجيات ومراقبة عناصر الصفحة والربط المباشر -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        const SUPABASE_URL = 'https://jnzohxvenfbbfzvpcytf.supabase.co'; 
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impuem9oeHZlbmZiYmZ6dnBjeXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyMDYzMTMsImV4cCI6MjA5Mzc4MjMxM30.VUYWmURqr04XOTK0kxYjjDQwOd6N3PolXTScG4DUd-A'; 
+        // إجبار المتصفح على البدء دائماً من أعلى الصفحة وعدم تذكر موضع التمرير
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // إعداد الاتصال بقاعدة بيانات Supabase
+        const SUPABASE_URL = 'https://glhamucxcqihocambytb.supabase.co'; 
+        const SUPABASE_KEY = 'sb_publishable_GXFtytqIlAZTley0bgamkQ_pe2ZnNkj'; 
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+        // متغيرات الصوت والفيديو
         const video = document.getElementById("introVideo");
         const audioEl = document.getElementById("audio");
         let experienceStarted = false;
@@ -714,44 +562,66 @@
         function startExperience() {
             if (experienceStarted) return;
             experienceStarted = true;
+            document.getElementById("clickOverlay").style.opacity = "0";
             
-            // إخفاء زر "اضغط هنا" فور الضغط بنعومة
-            const overlay = document.getElementById("clickOverlay");
-            if(overlay) overlay.style.opacity = "0";
-
             video.currentTime = 0;
-            video.muted = true;
-            video.setAttribute("playsinline", "");
-            video.setAttribute("webkit-playsinline", "");
-
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => { console.log("Video started"); })
-                .catch((err) => {
-                    console.log("Play blocked:", err);
-                    setTimeout(() => { video.play().catch(()=>{}); }, 300);
-                });
-            }
+            video.play().catch(()=>{});
             audioEl.play().catch(()=>{});
         }
 
         video.addEventListener("ended", () => {
             document.getElementById("whiteTransition").classList.add("active");
             setTimeout(() => {
-                window.scrollTo(0, 0);
-                document.querySelector('.phone-frame').scrollTop = 0;
                 document.getElementById("intro").style.display = "none";
                 document.getElementById("mainContainer").style.opacity = "1";
                 document.getElementById("whiteTransition").classList.remove("active");
                 video.pause();
-                video.removeAttribute("src");
-                video.load();
-                video.innerHTML = "";
-            }, 800);
+                
+                // التأكد مجدداً من أن التمرير في قمة الشاشة
+                window.scrollTo(0, 0);
+                const pf = document.getElementById('phoneFrame');
+                if (pf) pf.scrollTop = 0;
+            }, 750);
         });
 
+        // دالة تبديل اللغة (AR / EN)
+        function toggleLanguage(e, forceLang = null) {
+            if (e) e.stopPropagation();
+            const body = document.body;
+            const arBadge = document.getElementById('arBadge');
+            const enBadge = document.getElementById('enBadge');
+            const attSelect = document.getElementById('attendance');
+            const nameInput = document.getElementById('name');
+            const wishInput = document.getElementById('guest_wish');
+
+            const toEn = forceLang ? (forceLang === 'en') : !body.classList.contains('en-mode');
+
+            if (toEn) {
+                body.classList.add('en-mode');
+                document.documentElement.setAttribute('dir', 'ltr');
+                arBadge.classList.remove('active');
+                enBadge.classList.add('active');
+
+                attSelect.options[0].text = "Joyfully Attending 🎉";
+                attSelect.options[1].text = "Regretfully Cannot Attend";
+                nameInput.placeholder = "Full Name";
+                wishInput.placeholder = "Warm wishes for the couple.. ✨";
+                window.history.replaceState({}, '', '/EN');
+            } else {
+                body.classList.remove('en-mode');
+                document.documentElement.setAttribute('dir', 'rtl');
+                enBadge.classList.remove('active');
+                arBadge.classList.add('active');
+
+                attSelect.options[0].text = "هاجي إن شاء الله أشارككم الفرحة 🎉";
+                attSelect.options[1].text = "مش هقدر للأسف، ربنا يتمملكم على خير";
+                nameInput.placeholder = "الاسم الكريم | Full Name";
+                wishInput.placeholder = "كلمة حلوة للعرسان.. ✨";
+                window.history.replaceState({}, '', '/AR');
+            }
+        }
+
         function toggleFloatingMenu() {
-            document.getElementById('mainMenuBtn').classList.toggle('active');
             document.getElementById('subMenu').classList.toggle('open');
         }
 
@@ -760,7 +630,22 @@
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
-        const weddingDate = new Date("2026-10-13T20:00:00").getTime();
+        // قراءة مسار الرابط وضمان البدء من الأعلى
+        document.addEventListener("DOMContentLoaded", () => {
+            window.scrollTo(0, 0);
+            const pf = document.getElementById('phoneFrame');
+            if (pf) pf.scrollTop = 0;
+
+            const path = window.location.pathname.toLowerCase();
+            if (path.includes('/en')) {
+                toggleLanguage(null, 'en');
+            } else if (path.includes('/ar')) {
+                toggleLanguage(null, 'ar');
+            }
+        });
+
+        // العداد التنازلي
+        const weddingDate = new Date("2026-10-13T19:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const diff = weddingDate - now;
@@ -771,55 +656,153 @@
             document.getElementById("seconds").innerText = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
         }, 1000);
 
-        // تحسين أداء تساقط الأوراق لمنع اللاق
+        // تساقط الأوراق
         function createLeaf() {
             const container = document.getElementById('leafContainer');
-            if (container.children.length > 15) { container.removeChild(container.firstChild); }
+            if (container.children.length > 14) container.removeChild(container.firstChild);
             const leaf = document.createElement('div');
             leaf.className = 'leaf';
             leaf.style.left = Math.random() * 100 + '%';
-            leaf.style.width = (Math.random() * 12 + 10) + 'px';
+            leaf.style.width = (Math.random() * 10 + 10) + 'px';
             leaf.style.height = leaf.style.width;
-            leaf.style.animationDuration = (Math.random() * 4 + 7) + 's';
+            leaf.style.animationDuration = (Math.random() * 5 + 7) + 's';
             container.appendChild(leaf);
             setTimeout(() => { if (leaf.parentNode) leaf.remove(); }, 10000);
         }
-        setInterval(createLeaf, 1800);
+        setInterval(createLeaf, 1400);
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(en => {
-                if (en.isIntersecting) {
-                    en.target.classList.add('show');
-                    observer.unobserve(en.target);
+        // تفاعل البطاقات عند التمرير
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
                 }
             });
-        }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -30px 0px"
+        });
 
-        document.querySelectorAll('.reveal').forEach(el => { observer.observe(el); });
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
 
-        async function sendRSVP() {
-            const name = document.getElementById('name').value;
-            const wish = document.getElementById('guest_wish').value; 
+        // ==========================================================================
+        // 1. بصمة الجهاز المميزة (Device UUID)
+        // ==========================================================================
+        /*
+         * تقوم هذه الدالة بتوليد كود عشوائي فريد لكل هاتف زائر يفتح الدعوة.
+         * يتم حفظ هذا الكود بذاكرة الهاتف (localStorage)، ويرسل مع نموذج تأكيد الحضور.
+         * الفائدة: تمييز المستخدم حتى لو أرسل عدة نماذج بأسماء مختلفة من نفس الجهاز.
+         */
+        function getDeviceIdentifier() {
+            let deviceId = localStorage.getItem('dawaqr_guest_device_id');
+            if (!deviceId) {
+                if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+                    deviceId = crypto.randomUUID();
+                } else {
+                    deviceId = 'dev-' + Math.random().toString(36).substring(2, 12) + '-' + Date.now().toString(36);
+                }
+                localStorage.setItem('dawaqr_guest_device_id', deviceId);
+            }
+            return deviceId;
+        }
+
+        // دالة إظهار النافذة المنبثقة الفاخرة للرسائل
+        function showToast(titleAr, titleEn, msgAr, msgEn, iconType) {
+            const isEn = document.body.classList.contains('en-mode');
+            document.getElementById('toastTitle').innerText = isEn ? titleEn : titleAr;
+            document.getElementById('toastMsg').innerText = isEn ? msgEn : msgAr;
             
-            if(!name) { alert("لطفاً، برجاء كتابة اسم سيادتكم الكريم لتسجيل حضوركم"); return; }
+            const iconDiv = document.getElementById('toastIcon');
+            if (iconType === 'yes') {
+                iconDiv.innerHTML = '<svg viewBox="0 0 24 24" width="60" height="60" fill="var(--emerald)" style="margin-bottom: 12px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+            } else if (iconType === 'no') {
+                iconDiv.innerHTML = '<svg viewBox="0 0 24 24" width="60" height="60" fill="var(--gold-dark)" style="margin-bottom: 12px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>';
+            } else {
+                iconDiv.innerHTML = '<svg viewBox="0 0 24 24" width="60" height="60" fill="#d93025" style="margin-bottom: 12px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>';
+            }
+            document.getElementById('rsvpToast').style.display = 'flex';
+        }
+
+        // دالة إغلاق النافذة المنبثقة
+        function closeToast() {
+            document.getElementById('rsvpToast').style.display = 'none';
+        }
+
+        // ==========================================================================
+        // 2. إرسال بيانات RSVP (تأكيد الحضور) - النسخة المدمجة والسليمة 100%
+        // ==========================================================================
+        async function sendRSVP() {
+            const nameInput = document.getElementById('name');
+            const wishInput = document.getElementById('guest_wish');
+            const attSelect = document.getElementById('attendance');
+            
+            const name = nameInput.value.trim();
+            const wish = wishInput.value.trim();
+            const isEn = document.body.classList.contains('en-mode');
+            
+            // التحقق من كتابة الاسم
+            if (!name) { 
+                showToast(
+                    "تنبيه", "Notice", 
+                    "يا ريت تكتب اسمك الكريم لتسجيل الحضور.", "Please write your name to confirm.", 
+                    'error'
+                ); 
+                return; 
+            }
             
             const btn = document.querySelector('.rsvp-submit-btn');
-            btn.innerText = "جاري تسجيل حضوركم الراقي...";
+            btn.innerHTML = isEn ? "Sending..." : "جاري الإرسال...";
+            btn.disabled = true;
+
+            // الحصول على بصمة الجهاز المميزة (Device ID)
+            const deviceId = getDeviceIdentifier();
             
-            const { error } = await _supabase.from('rsvp_guests').insert([{
-                name: name,
-                attendance: document.getElementById('attendance').value,
-                guest_wish: wish
-            }]);
-            
-            if(!error) {
-                btn.innerText = "تم تأكيد الحضور بنجاح ✨";
-                btn.style.background = "linear-gradient(135deg, #1e3c28, #27ae60)";
-                btn.style.color = "#fff";
-                alert("تم استلام تأكيد حضور سيادتكم وكلماتكم الطيبة بنجاح.. يسعدنا جداً تشريفكم لنا ونراكم على خير!");
-            } else {
-                alert("عذراً، حدث خطأ غير متوقع أثناء الإرسال. يرجى إعادة المحاولة مرة أخرى.");
-                btn.innerText = "إرسال التأكيد من القلب";
+            try {
+                if (!_supabase) throw new Error("Database not connected");
+                
+                // إرسال البيانات لقاعدة بيانات Supabase (مع تخزين device_id لتمييز الجهاز)
+                const { error } = await _supabase.from('rsvp_guests').insert([{ 
+                    name: name, 
+                    attendance: attSelect.value, 
+                    guest_wish: wish,
+                    device_id: deviceId 
+                }]);
+                
+                if (error) throw error;
+
+                // رسالة النجاح وتحديد النص بناءً على الحضور أو الاعتذار
+                btn.innerHTML = isEn ? "Confirmed ✨" : "تم التأكيد بنجاح ✨";
+                
+                if (attSelect.value === "yes") {
+                    showToast(
+                        "شرف لينا حضوركم", "Honored by Your Presence", 
+                        "تم تأكيد الحضور بنجاح.. الفرحة مش هتكمل غير بيك، مستنيينك تنورنا ✨", 
+                        "Your attendance is confirmed. Our joy won't be complete without you ✨", 
+                        'yes'
+                    );
+                } else {
+                    showToast(
+                        "هنفتقدك جداً", "We Will Miss You", 
+                        "شكراً لردك.. زعلنا إنك مش هتكون معانا، بس متأكدين إن دعواتك الصادقة هتوصلنا 🤍", 
+                        "Thank you for letting us know. We'll miss you, but we know your warm wishes are with us 🤍", 
+                        'no'
+                    );
+                }
+                
+                wishInput.value = ""; // تفريغ حقل الأمنيات
+
+            } catch (err) {
+                console.error("RSVP Error:", err);
+                showToast(
+                    "خطأ في الإرسال", "Submission Error", 
+                    "حصلت مشكلة أثناء الإرسال، يا ريت تجرب تاني.", "An error occurred, please try again.", 
+                    'error'
+                );
+                btn.innerHTML = isEn ? "Submit RSVP" : "إرسال التأكيد";
+            } finally {
+                btn.disabled = false; // إعادة تفعيل الزر
             }
         }
 
@@ -827,24 +810,10 @@
         function toggleMusic() {
             const audio = document.getElementById('audio');
             const btn = document.getElementById('musicBtn');
-            if (musicPlaying) {
-                audio.pause();
-                btn.style.opacity = "0.5";
-                musicPlaying = false;
-            } else {
-                audio.play();
-                btn.style.opacity = "1";
-                musicPlaying = true;
-            }
+            if (musicPlaying) { audio.pause(); btn.style.opacity = "0.5"; } 
+            else { audio.play(); btn.style.opacity = "1"; }
+            musicPlaying = !musicPlaying;
         }
-        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-        window.scrollTo(0, 0);
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            window.scrollTo(0, 0);
-            const phoneFrame = document.querySelector('.phone-frame');
-            if(phoneFrame) phoneFrame.scrollTop = 0;
-        });
     </script>
 </body>
 </html>
