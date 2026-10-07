@@ -2,40 +2,25 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
-    <!-- وسوم المعاينة لبرامج التراسل (واتساب، فيسبوك، تويتر) -->
+    <!-- وسوم المعاينة لبرامج التراسل -->
     <meta property="og:title" content="AHMED & HABIBA 💍✨">
     <meta property="og:description" content="نتشرف بدعوتكم لحضور حفل زفافنا 🤍 • عشان فرحتنا مش هتحلى غير بيكم🤍 • اضغط هنا">
-<meta property="og:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/main/assets/WW.jpg">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/main/assets/WW.jpg">
     <meta property="og:url" content="a-h.dawaqr.com">
     <meta property="og:type" content="website">
 
-    <!-- للتحكم بحجم الصورة في واتساب -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AHMED & HABIBA 💍✨">
-<meta name="twitter:description" content="نتشرف بدعوتكم لحضور حفل زفافنا 🤍 • عشان فرحتنا مش هتحلى غير بيكم🤍 • اضغط هنا">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/main/assets/WW.jpg">
+    <meta name="twitter:description" content="نتشرف بدعوتكم لحضور حفل زفافنا 🤍 • عشان فرحتنا مش هتحلى غير بيكم🤍 • اضغط هنا">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Shlbon00/design-DAWAQR-01/main/assets/WW.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>دعوة زفاف | أحمد وحبيبة</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800;900&family=Tajawal:wght@200;300;400;500;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
-</head>
-
 
     <style>
-        /* ستايل النافذة المنبثقة الفاخرة */
-        .toast-modal { 
-            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); 
-            z-index: 999999; align-items: center; justify-content: center; 
-            backdrop-filter: blur(10px); pointer-events: auto; 
-        }
-        .toast-card { 
-            background: var(--card-cream-translucent); border: 2px solid var(--gold-main); 
-            padding: 35px 25px; border-radius: 16px; text-align: center; 
-            max-width: 340px; width: 88%; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 15px rgba(205, 164, 94, 0.2); 
-            transform: scale(0.8); animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
+        .toast-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999999; align-items: center; justify-content: center; backdrop-filter: blur(10px); pointer-events: auto; }
+        .toast-card { background: var(--card-cream-translucent); border: 2px solid var(--gold-main); padding: 35px 25px; border-radius: 16px; text-align: center; max-width: 340px; width: 88%; box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 15px rgba(205, 164, 94, 0.2); transform: scale(0.8); animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         @keyframes popIn { to { transform: scale(1); } }
 
         :root {
@@ -55,243 +40,71 @@
         .tajawal-medium { font-family: "Tajawal", sans-serif; font-weight: 500; }
         .tajawal-bold { font-family: "Tajawal", sans-serif; font-weight: 700; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html, body {
-            scroll-behavior: auto;
-        }
-
-        body {
-            font-family: "Tajawal", sans-serif;
-            background-color: #0d1711; 
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            color: var(--text-dark); 
-            overflow-y: auto;
-            overflow-x: hidden;
-            transition: all 0.4s ease;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { scroll-behavior: auto; }
+        body { font-family: "Tajawal", sans-serif; background-color: #0d1711; display: flex; justify-content: center; min-height: 100vh; color: var(--text-dark); overflow-y: auto; overflow-x: hidden; transition: all 0.4s ease; }
         body.en-mode { font-family: 'Playfair Display', serif; }
 
-        .phone-frame {
-            position: relative;
-            width: 100%;
-            max-width: var(--phone-width);
-            min-height: 100dvh;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6); 
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
+        .phone-frame { position: relative; width: 100%; max-width: var(--phone-width); min-height: 100dvh; box-shadow: 0 0 60px rgba(0, 0, 0, 0.6); overflow-x: hidden; overflow-y: auto; }
+        .bg-wrapper { position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: var(--phone-width); height: 100vh; z-index: 0; pointer-events: none; background-image: url('assets/04.png'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .bg-overlay { position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: var(--phone-width); height: 100vh; background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(20,36,26,0.22) 100%); z-index: 1; pointer-events: none; }
 
-        .bg-wrapper {
-            position: fixed;
-            top: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: var(--phone-width); height: 100vh;
-            z-index: 0; pointer-events: none;
-            background-image: url('assets/04.png'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;
-        }
-        
-        .bg-overlay {
-            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: var(--phone-width); height: 100vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(20,36,26,0.22) 100%);
-            z-index: 1; pointer-events: none;
-        }
-
-        /* شاشة الافتتاحية */
-        .intro {
-            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: var(--phone-width); height: 100%;
-            background: #18221b; z-index: 99999; display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-        }
+        .intro { position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: var(--phone-width); height: 100%; background: #18221b; z-index: 99999; display: flex; align-items: center; justify-content: center; cursor: pointer; }
         .intro video { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
-        .click-to-play {
-            position: absolute; z-index: 100000; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; pointer-events: none;
-        }
+        .click-to-play { position: absolute; z-index: 100000; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
         
-        /* زر OPEN مشع بدون أي خلفية */
-        .click-text {
-            color: #ffffff; 
-            font-family: 'Cinzel', serif; 
-            font-size: 19px;
-            font-weight: 700;
-            letter-spacing: 10px;
-            padding: 14px 44px; 
-            border: 2px solid rgba(255, 255, 255, 0.9); 
-            border-radius: 8px; 
-            background: transparent !important; 
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            margin-top: 330px;
-            box-shadow: 0 0 35px rgba(255, 255, 255, 1), 
-                        0 0 60px rgba(205, 164, 94, 0.8), 
-                        inset 0 0 15px rgba(255, 255, 255, 0.6);
-            text-shadow: 0 0 14px #ffffff, 0 0 25px var(--gold-light);
-            animation: intense-glow 1.8s infinite alternate ease-in-out;
-        }
+        .click-text { color: #ffffff; font-family: 'Cinzel', serif; font-size: 19px; font-weight: 700; letter-spacing: 10px; padding: 14px 44px; border: 2px solid rgba(255, 255, 255, 0.9); border-radius: 8px; background: transparent !important; backdrop-filter: none; -webkit-backdrop-filter: none; margin-top: 330px; box-shadow: 0 0 35px rgba(255, 255, 255, 1), 0 0 60px rgba(205, 164, 94, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.6); text-shadow: 0 0 14px #ffffff, 0 0 25px var(--gold-light); animation: intense-glow 1.8s infinite alternate ease-in-out; }
+        @keyframes intense-glow { 0% { transform: scale(1); box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 45px rgba(205, 164, 94, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.4); text-shadow: 0 0 10px #ffffff; } 100% { transform: scale(1.04); box-shadow: 0 0 45px rgba(255, 255, 255, 1), 0 0 85px rgba(205, 164, 94, 0.95), inset 0 0 22px rgba(255, 255, 255, 0.8); text-shadow: 0 0 20px #ffffff, 0 0 35px var(--gold-light); } }
 
-        @keyframes intense-glow {
-            0% { 
-                transform: scale(1);
-                box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 
-                            0 0 45px rgba(205, 164, 94, 0.6), 
-                            inset 0 0 10px rgba(255, 255, 255, 0.4); 
-                text-shadow: 0 0 10px #ffffff;
-            }
-            100% { 
-                transform: scale(1.04);
-                box-shadow: 0 0 45px rgba(255, 255, 255, 1), 
-                            0 0 85px rgba(205, 164, 94, 0.95), 
-                            inset 0 0 22px rgba(255, 255, 255, 0.8); 
-                text-shadow: 0 0 20px #ffffff, 0 0 35px var(--gold-light);
-            }
-        }
-
-        .white-transition {
-            position: fixed; inset: 0; background: #fff; z-index: 99998;
-            opacity: 0; pointer-events: none; transition: opacity 0.8s ease;
-        }
+        .white-transition { position: fixed; inset: 0; background: #fff; z-index: 99998; opacity: 0; pointer-events: none; transition: opacity 0.8s ease; }
         .white-transition.active { opacity: 1; }
 
-        .leaf-container {
-            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
-            max-width: var(--phone-width); width: 100%; height: 100vh;
-            pointer-events: none; z-index: 10; 
-        }
-        .leaf {
-            position: absolute;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23cda45e" opacity="0.6"><path d="M12,2L15,9L22,12L15,15L12,22L9,15L2,12L9,9L12,2Z"/></svg>');
-            background-size: contain; background-repeat: no-repeat;
-            will-change: transform, opacity; animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { transform: translate3d(0, -50px, 0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.9; }
-            90% { opacity: 0.9; }
-            100% { transform: translate3d(0, 110vh, 0) rotate(180deg); opacity: 0; } 
-        }
+        .leaf-container { position: fixed; top: 0; left: 50%; transform: translateX(-50%); max-width: var(--phone-width); width: 100%; height: 100vh; pointer-events: none; z-index: 10; }
+        .leaf { position: absolute; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23cda45e" opacity="0.6"><path d="M12,2L15,9L22,12L15,15L12,22L9,15L2,12L9,9L12,2Z"/></svg>'); background-size: contain; background-repeat: no-repeat; will-change: transform, opacity; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translate3d(0, -50px, 0) rotate(0deg); opacity: 0; } 10% { opacity: 0.9; } 90% { opacity: 0.9; } 100% { transform: translate3d(0, 110vh, 0) rotate(180deg); opacity: 0; } }
 
-        .card {
-            position: relative; 
-            margin: var(--section-margin) 16px; 
-            padding: 38px 22px;
-            border-radius: 12px; 
-            background: var(--card-cream-translucent);
-            backdrop-filter: blur(14px); 
-            -webkit-backdrop-filter: blur(14px);
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26); 
-            border: 1px solid rgba(205, 164, 94, 0.45);
-            text-align: center; 
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(35px) scale(0.97);
-            transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), 
-                        transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: opacity, transform;
-        }
-
-        .card.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .card::after {
-            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
-            border: 1px solid rgba(205, 164, 94, 0.28); border-radius: 8px; pointer-events: none;
-        }
-        .card.green-theme {
-            background: rgba(20, 36, 26, 0.93); color: #fff;
-            border: 1px solid rgba(205, 164, 94, 0.6); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-        }
+        .card { position: relative; margin: var(--section-margin) 16px; padding: 38px 22px; border-radius: 12px; background: var(--card-cream-translucent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26); border: 1px solid rgba(205, 164, 94, 0.45); text-align: center; z-index: 2; opacity: 0; transform: translateY(35px) scale(0.97); transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
+        .card.active { opacity: 1; transform: translateY(0) scale(1); }
+        .card::after { content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px; border: 1px solid rgba(205, 164, 94, 0.28); border-radius: 8px; pointer-events: none; }
+        .card.green-theme { background: rgba(20, 36, 26, 0.93); color: #fff; border: 1px solid rgba(205, 164, 94, 0.6); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
         .card.green-theme p { color: #f2ebd9; }
         .card.green-theme::after { border-color: rgba(232, 208, 152, 0.25); }
         .card.compact { margin: var(--section-margin-compact) 16px; padding: 28px 18px; }
 
-        .divider {
-            width: 70%; height: 1px; margin: 16px auto; position: relative;
-            background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
-        }
-        .divider::after {
-            content: '✧'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            font-size: 13px; color: var(--gold-main); background: transparent; padding: 0 10px;
-        }
+        .divider { width: 70%; height: 1px; margin: 16px auto; position: relative; background: linear-gradient(90deg, transparent, var(--gold-main), transparent); }
+        .divider::after { content: '✧'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 13px; color: var(--gold-main); background: transparent; padding: 0 10px; }
         .card.green-theme .divider::after { color: var(--gold-light); }
 
         .gold-text { color: var(--gold-dark); }
         .card.green-theme .gold-text { color: var(--gold-light); }
         
-        .title-text { 
-            font-family: "Noto Kufi Arabic", sans-serif; 
-            font-weight: 700;
-            font-size: 24px; 
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
-        }
+        .title-text { font-family: "Noto Kufi Arabic", sans-serif; font-weight: 700; font-size: 24px; margin-bottom: 6px; letter-spacing: 0.5px; }
         body.en-mode .title-text { font-family: 'Cinzel', serif; font-size: 21px; }
 
-        .body-text { 
-            font-family: "Tajawal", sans-serif; 
-            font-size: 18.5px; 
-            line-height: 1.85; 
-            font-weight: 500;
-        }
+        .body-text { font-family: "Tajawal", sans-serif; font-size: 18.5px; line-height: 1.85; font-weight: 500; }
         body.en-mode .body-text { font-family: 'Playfair Display', serif; font-size: 16.5px; line-height: 1.75; }
 
-        .hero-banner-wrap {
-            position: relative; width: 100%; margin: 0; padding: 0; z-index: 2; line-height: 0;
-        }
-
-        .hero-names-img {
-            width: 100%; height: auto; display: block; margin: 0; padding: 0; mix-blend-mode: screen; 
-            opacity: 0; animation: heroReveal 1.6s forwards 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
+        .hero-banner-wrap { position: relative; width: 100%; margin: 0; padding: 0; z-index: 2; line-height: 0; }
+        .hero-names-img { width: 100%; height: auto; display: block; margin: 0; padding: 0; mix-blend-mode: screen; opacity: 0; animation: heroReveal 1.6s forwards 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
         @keyframes heroReveal { to { opacity: 1; transform: scale(1); } }
 
         .countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
-        .time-box {
-            background: rgba(255, 255, 255, 0.65); border-radius: 8px; padding: 12px 4px;
-            border: 1px solid rgba(205, 164, 94, 0.45); box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
+        .time-box { background: rgba(255, 255, 255, 0.65); border-radius: 8px; padding: 12px 4px; border: 1px solid rgba(205, 164, 94, 0.45); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
         .time-box div { font-size: 23px; font-weight: 800; color: var(--emerald); font-family: "Noto Kufi Arabic", sans-serif; }
         .time-box span { font-size: 12.5px; color: var(--text-dark); font-weight: 700; font-family: "Tajawal", sans-serif; }
         body.en-mode .time-box div { font-family: 'Playfair Display', serif; }
         body.en-mode .time-box span { font-family: 'Playfair Display', serif; }
 
-        .action-btn-outline {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; padding: 11px 22px;
-            border-radius: 6px; border: 1.5px solid var(--gold-main); color: var(--gold-light); background: rgba(255, 255, 255, 0.08);
-            text-decoration: none; font-family: "Noto Kufi Arabic", sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
-        }
+        .action-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; padding: 11px 22px; border-radius: 6px; border: 1.5px solid var(--gold-main); color: var(--gold-light); background: rgba(255, 255, 255, 0.08); text-decoration: none; font-family: "Noto Kufi Arabic", sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
         body.en-mode .action-btn-outline { font-family: 'Cinzel', serif; font-size: 12.5px; letter-spacing: 1px; }
         .action-btn-outline:hover { background: var(--gold-main); color: var(--emerald); }
 
-        .rsvp-field {
-            width: 100%; padding: 14px; margin-top: 12px; border-radius: 8px; border: 1.5px solid rgba(205, 164, 94, 0.5); 
-            background: rgba(255, 255, 255, 0.8); color: var(--text-dark); font-weight: 600; outline: none; 
-            font-family: 'Tajawal', sans-serif; font-size: 15px; transition: all 0.3s ease; position: relative; z-index: 2;
-        }
+        .rsvp-field { width: 100%; padding: 14px; margin-top: 12px; border-radius: 8px; border: 1.5px solid rgba(205, 164, 94, 0.5); background: rgba(255, 255, 255, 0.8); color: var(--text-dark); font-weight: 600; outline: none; font-family: 'Tajawal', sans-serif; font-size: 15px; transition: all 0.3s ease; position: relative; z-index: 2; }
         body.en-mode .rsvp-field { font-family: 'Playfair Display', serif; }
         .rsvp-field:focus { border-color: var(--emerald); background: #ffffff; box-shadow: 0 0 0 3px rgba(26, 54, 38, 0.15); }
         select.rsvp-field { cursor: pointer; }
         
-        .rsvp-submit-btn {
-            width: 100%; margin-top: 22px; padding: 15px; border: none; border-radius: 8px;
-            background: linear-gradient(135deg, var(--emerald), var(--emerald-light)); color: #fff; font-weight: 700; font-size: 16px; 
-            cursor: pointer; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); transition: all 0.3s ease; font-family: "Noto Kufi Arabic", sans-serif; position: relative; z-index: 2;
-        }
+        .rsvp-submit-btn { width: 100%; margin-top: 22px; padding: 15px; border: none; border-radius: 8px; background: linear-gradient(135deg, var(--emerald), var(--emerald-light)); color: #fff; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); transition: all 0.3s ease; font-family: "Noto Kufi Arabic", sans-serif; position: relative; z-index: 2; }
         body.en-mode .rsvp-submit-btn { font-family: 'Cinzel', serif; letter-spacing: 1px; }
         .rsvp-submit-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
 
@@ -299,14 +112,6 @@
         .map-container iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
         .icon-svg { width: 36px; height: 36px; fill: var(--gold-dark); margin-bottom: 6px; }
         .card.green-theme .icon-svg { fill: var(--gold-light); }
-
-        .lang-switch {
-            position: absolute; top: 16px; right: 16px; z-index: 10000; display: inline-flex; align-items: center;
-            background: rgba(20, 36, 26, 0.7); border: 1px solid var(--gold-main); border-radius: 30px; padding: 3px 6px;
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); cursor: pointer; user-select: none; transition: all 0.3s ease;
-        }
-        .lang-switch span { font-family: 'Cinzel', 'Noto Kufi Arabic', sans-serif; font-size: 11.5px; font-weight: 700; padding: 4px 9px; border-radius: 20px; color: #d1c7b7; transition: all 0.3s ease; }
-        .lang-switch span.active { background: var(--gold-main); color: #14241a; box-shadow: 0 0 10px rgba(205, 164, 94, 0.6); }
 
         .lang-en { display: none; }
         body.en-mode .lang-ar { display: none; }
@@ -341,9 +146,6 @@
     <div class="phone-frame" id="phoneFrame">
         <div class="bg-wrapper"></div>
         <div class="bg-overlay"></div> 
-
-        <!-- شارة تبديل اللغة التفاعلية -->
-
 
         <div class="leaf-container" id="leafContainer"></div>
 
@@ -463,9 +265,8 @@
                 <div class="divider"></div>
                 <div style="font-size:22px; margin:10px 0;" class="font-kufi">
                     <span class="lang-ar">قاعة وادي القمر - Green Valley</span>
-<span class="lang-en">Wady Elamar</span><br>
-<span class="lang-en">Green Valley</span>
-
+                    <span class="lang-en" style="display: block;">Wady Elamar</span>
+                    <span class="lang-en" style="display: block; margin-top: 4px;">Green Valley</span>
                 </div>
                 <div style="font-size:18px;" class="tajawal-medium">
                     <span class="lang-ar">طريق المحلة طنطا</span>
@@ -496,7 +297,7 @@
                         <span class="lang-ar font-kufi" style="font-size: 13px; font-weight: 700; margin-top: 6px; display: block;">أوف وايت</span>
                         <span class="lang-en" style="font-size: 14px; margin-top: 6px; display: block;">Off-White</span>
                     </div>
-                                        <div style="text-align: center;">
+                    <div style="text-align: center;">
                         <div class="color-circle" style="background: #fbfbec;"></div>
                         <span class="lang-ar font-kufi" style="font-size: 13px; font-weight: 700; margin-top: 6px; display: block;">بـيج</span>
                         <span class="lang-en" style="font-size: 14px; margin-top: 6px; display: block;">Beige</span>
@@ -504,30 +305,20 @@
                 </div>
             </section>
 
+            <!-- بطاقة 7: تنويه الأطفال (يظهر في الإنجليزية فقط) -->
+            <section class="card compact" style="text-align: center;">
+                <div id="childrenIconContainer" style="display: none; position: relative; width: 55px; height: 55px; margin: 0 auto 12px auto;">
+                    <img src="https://api.iconify.design/fluent:people-24-filled.svg?color=%23cda45e" alt="Children" style="width: 48px; height: 48px; display: block; position: absolute; top: 3.5px; left: 3.5px;">
+                    <div style="position: absolute; top: 50%; left: -5%; width: 110%; height: 3px; background-color: #d93025; transform: translateY(-50%) rotate(-45deg); border-radius: 3px; pointer-events: none; z-index: 2;"></div>
+                </div>
+                <h2 class="title-text gold-text">
+                    <span class="lang-ar">نتمنى لأطفالكم ليلة سعيدة 🤍</span>
+                    <span class="lang-en">No children allowed</span>
+                </h2>
+                <div class="divider"></div>
+                <p class="lang-ar body-text tajawal-bold" style="color: var(--emerald);">جنة الأطفال منازلهم</p>
+            </section>
 
-
-             <!-- بطاقة 7: تنويه الأطفال -->
-<section class="card compact" style="text-align: center;">
-    <!-- حاوية أيقونة الأطفال مع خط الحظر الأحمر المائل -->
-    <div id="childrenIconContainer" style="display: none; position: relative; width: 55px; height: 55px; margin: 0 auto 12px auto;">
-        
-        <!-- الأيقونة الذهبية للأطفال في الخلفية -->
-        <img src="https://api.iconify.design/fluent:people-24-filled.svg?color=%23cda45e" alt="Children" style="width: 48px; height: 48px; display: block; position: absolute; top: 3.5px; left: 3.5px;">
-        
-        <!-- خط الحظر الأحمر المائل فوق الأيقونة -->
-        <svg viewBox="0 0 24 24" style="position: absolute; top: 0; left: 0; width: 55px; height: 55px; pointer-events: none;">
-            <line x1="4" y1="20" x2="20" y2="4" stroke="#d93025" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-
-    </div>
-
-    <h2 class="title-text gold-text">
-        <span class="lang-ar">نتمنى لأطفالكم ليلة سعيدة 🤍</span>
-        <span class="lang-en">No children allowed</span>
-    </h2>
-    <div class="divider"></div>
-    <p class="lang-ar body-text tajawal-bold" style="color: var(--emerald);">جنة الأطفال منازلهم</p>
-</section>
             <!-- بطاقة 8: تأكيد الحضور (RSVP) -->
             <section class="card">
                 <h2 class="title-text gold-text">
@@ -572,18 +363,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // إجبار المتصفح على البدء دائماً من أعلى الصفحة وعدم تذكر موضع التمرير
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         window.scrollTo(0, 0);
 
-        // إعداد الاتصال بقاعدة بيانات Supabase
         const SUPABASE_URL = 'https://glhamucxcqihocambytb.supabase.co'; 
         const SUPABASE_KEY = 'sb_publishable_GXFtytqIlAZTley0bgamkQ_pe2ZnNkj'; 
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // متغيرات الصوت والفيديو
         const video = document.getElementById("introVideo");
         const audioEl = document.getElementById("audio");
         let experienceStarted = false;
@@ -606,50 +394,37 @@
                 document.getElementById("whiteTransition").classList.remove("active");
                 video.pause();
                 
-                // التأكد مجدداً من أن التمرير في قمة الشاشة
                 window.scrollTo(0, 0);
                 const pf = document.getElementById('phoneFrame');
                 if (pf) pf.scrollTop = 0;
             }, 750);
         });
 
-        // دالة تبديل اللغة (AR / EN)
-    function toggleLanguage(e, forceLang = null) {
-            if (e) e.stopPropagation();
+        // دالة تحديد اللغة تلقائياً وإظهار الأيقونة
+        function setLanguageMode(forceLang) {
             const body = document.body;
-            const arBadge = document.getElementById('arBadge');
-            const enBadge = document.getElementById('enBadge');
             const attSelect = document.getElementById('attendance');
             const nameInput = document.getElementById('name');
             const wishInput = document.getElementById('guest_wish');
 
-            const toEn = forceLang ? (forceLang === 'en') : !body.classList.contains('en-mode');
+            const toEn = (forceLang === 'en');
 
             if (toEn) {
                 body.classList.add('en-mode');
                 document.documentElement.setAttribute('dir', 'ltr');
-                arBadge.classList.remove('active');
-                enBadge.classList.add('active');
-
                 attSelect.options[0].text = "Joyfully Attending 🎉";
                 attSelect.options[1].text = "Regretfully Cannot Attend";
                 nameInput.placeholder = "Full Name";
                 wishInput.placeholder = "Warm wishes for the couple.. ✨";
-                window.history.replaceState({}, '', '/EN');
             } else {
                 body.classList.remove('en-mode');
                 document.documentElement.setAttribute('dir', 'rtl');
-                enBadge.classList.remove('active');
-                arBadge.classList.add('active');
-
                 attSelect.options[0].text = "هاجي إن شاء الله أشارككم الفرحة 🎉";
                 attSelect.options[1].text = "مش هقدر للأسف، ربنا يتمملكم على خير";
                 nameInput.placeholder = "الاسم الكريم | Full Name";
                 wishInput.placeholder = "كلمة حلوة للعرسان.. ✨";
-                window.history.replaceState({}, '', '/AR');
             }
 
-            // أضف هذا السطر هنا للتحكم في ظهور أو إخفاء أيقونة الأطفال بناءً على اللغة
             const childrenIcon = document.getElementById('childrenIconContainer');
             if (childrenIcon) {
                 childrenIcon.style.display = toEn ? 'block' : 'none';
@@ -665,23 +440,19 @@
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
-     // قراءة مسار الرابط لتحديد اللغة تلقائياً من نفس الملف الواحد
         document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo(0, 0);
             const pf = document.getElementById('phoneFrame');
             if (pf) pf.scrollTop = 0;
 
             const path = window.location.pathname.toLowerCase();
-            // إذا كان الرابط ينتهي بـ /en يتم تفعيل النسخة الإنجليزية تلقائياً
             if (path.includes('/en')) {
-                toggleLanguage(null, 'en');
+                setLanguageMode('en');
             } else {
-                // الافتراضي دائماً هي النسخة العربية
-                toggleLanguage(null, 'ar');
+                setLanguageMode('ar');
             }
         });
 
-        // العداد التنازلي
         const weddingDate = new Date("2026-10-13T19:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -693,7 +464,6 @@
             document.getElementById("seconds").innerText = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
         }, 1000);
 
-        // تساقط الأوراق
         function createLeaf() {
             const container = document.getElementById('leafContainer');
             if (container.children.length > 14) container.removeChild(container.firstChild);
@@ -708,7 +478,6 @@
         }
         setInterval(createLeaf, 1400);
 
-        // تفاعل البطاقات عند التمرير
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -724,14 +493,6 @@
 
         document.querySelectorAll('.card').forEach(card => observer.observe(card));
 
-        // ==========================================================================
-        // 1. بصمة الجهاز المميزة (Device UUID)
-        // ==========================================================================
-        /*
-         * تقوم هذه الدالة بتوليد كود عشوائي فريد لكل هاتف زائر يفتح الدعوة.
-         * يتم حفظ هذا الكود بذاكرة الهاتف (localStorage)، ويرسل مع نموذج تأكيد الحضور.
-         * الفائدة: تمييز المستخدم حتى لو أرسل عدة نماذج بأسماء مختلفة من نفس الجهاز.
-         */
         function getDeviceIdentifier() {
             let deviceId = localStorage.getItem('dawaqr_guest_device_id');
             if (!deviceId) {
@@ -745,7 +506,6 @@
             return deviceId;
         }
 
-        // دالة إظهار النافذة المنبثقة الفاخرة للرسائل
         function showToast(titleAr, titleEn, msgAr, msgEn, iconType) {
             const isEn = document.body.classList.contains('en-mode');
             document.getElementById('toastTitle').innerText = isEn ? titleEn : titleAr;
@@ -762,14 +522,10 @@
             document.getElementById('rsvpToast').style.display = 'flex';
         }
 
-        // دالة إغلاق النافذة المنبثقة
         function closeToast() {
             document.getElementById('rsvpToast').style.display = 'none';
         }
 
-        // ==========================================================================
-        // 2. إرسال بيانات RSVP (تأكيد الحضور) - النسخة المدمجة والسليمة 100%
-        // ==========================================================================
         async function sendRSVP() {
             const nameInput = document.getElementById('name');
             const wishInput = document.getElementById('guest_wish');
@@ -779,7 +535,6 @@
             const wish = wishInput.value.trim();
             const isEn = document.body.classList.contains('en-mode');
             
-            // التحقق من كتابة الاسم
             if (!name) { 
                 showToast(
                     "تنبيه", "Notice", 
@@ -793,13 +548,11 @@
             btn.innerHTML = isEn ? "Sending..." : "جاري الإرسال...";
             btn.disabled = true;
 
-            // الحصول على بصمة الجهاز المميزة (Device ID)
             const deviceId = getDeviceIdentifier();
             
             try {
                 if (!_supabase) throw new Error("Database not connected");
                 
-                // إرسال البيانات لقاعدة بيانات Supabase (مع تخزين device_id لتمييز الجهاز)
                 const { error } = await _supabase.from('rsvp_guests').insert([{ 
                     name: name, 
                     attendance: attSelect.value, 
@@ -809,7 +562,6 @@
                 
                 if (error) throw error;
 
-                // رسالة النجاح وتحديد النص بناءً على الحضور أو الاعتذار
                 btn.innerHTML = isEn ? "Confirmed ✨" : "تم التأكيد بنجاح ✨";
                 
                 if (attSelect.value === "yes") {
@@ -828,7 +580,7 @@
                     );
                 }
                 
-                wishInput.value = ""; // تفريغ حقل الأمنيات
+                wishInput.value = ""; 
 
             } catch (err) {
                 console.error("RSVP Error:", err);
@@ -839,7 +591,7 @@
                 );
                 btn.innerHTML = isEn ? "Submit RSVP" : "إرسال التأكيد";
             } finally {
-                btn.disabled = false; // إعادة تفعيل الزر
+                btn.disabled = false; 
             }
         }
 
